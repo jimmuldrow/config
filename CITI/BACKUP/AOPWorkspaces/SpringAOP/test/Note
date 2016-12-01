@@ -1,0 +1,165 @@
+
+
+
+http://www.journaldev.com/2583/spring-aop-example-tutorial-aspect-advice-pointcut-joinpoint-annotations
+
+SpringMain
+
+System.out.println(employeeService.getEmployee().getName());
+
+1) EmployeeAspect
+
+	@Before("execution(* com.journaldev.spring.service.*.get*())")
+	public void getAllAdvice(){
+		System.out.println("Service method getter called");
+	}
+	
+2) EmployeeAspectPointcut
+	
+	@Before("allMethodsPointcut()")
+	public void allServiceMethodsAdvice(){
+		System.out.println("Before executing service method");
+	}	
+
+3) EmployeeXMLConfigAspect
+	
+	public Object employeeAroundAdvice(ProceedingJoinPoint proceedingJoinPoint){
+		System.out.println("EmployeeXMLConfigAspect:: Before invoking getName() method");  ***
+		Object value = null;
+		try {
+			value = proceedingJoinPoint.proceed();
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		System.out.println("EmployeeXMLConfigAspect:: After invoking getName() method. Return value="+value);
+		return value;
+	}
+	
+<aop:config>
+	<aop:aspect ref="employeeXMLConfigAspect" id="employeeXMLConfigAspectID" order="1">
+		<aop:pointcut expression="execution(* com.journaldev.spring.model.Employee.getName())" id="getNamePointcut"/>
+		<aop:around method="employeeAroundAdvice" pointcut-ref="getNamePointcut" arg-names="proceedingJoinPoint"/>
+	</aop:aspect>
+</aop:config>	
+	
+4) EmployeeAspect
+
+	@Before("execution(public String getName())")
+	public void getNameAdvice(){
+		System.out.println("Executing Advice on getName()");
+	}
+	
+5) EmployeeAspectPointcut
+
+	@Before("getNamePointcut()")
+	public void loggingAdvice(){
+		System.out.println("Executing loggingAdvice on getName()");
+	}
+	
+6) EmployeeAspectPointcut
+
+	@Before("getNamePointcut()")
+	public void secondAdvice(){
+		System.out.println("Executing secondAdvice on getName()");
+	}
+	
+7) EmployeeAroundAspect
+
+	@Around("execution(* com.journaldev.spring.model.Employee.getName())")
+	public Object employeeAroundAdvice(ProceedingJoinPoint proceedingJoinPoint){
+		System.out.println("Before invoking getName() method");   ***
+		Object value = null;
+		try {
+			value = proceedingJoinPoint.proceed();
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		System.out.println("After invoking getName() method. Return value="+value);  *** (value = Dummy Name)
+		return value;
+	}	
+	
+8) EmployeeAfterAspect
+
+	@AfterReturning(pointcut="execution(* getName())", returning="returnString")
+	public void getNameReturningAdvice(String returnString){
+		System.out.println("getNameReturningAdvice executed. Returned String="+returnString);
+	}
+	
+9) EmployeeXMLConfigAspect
+
+	public Object employeeAroundAdvice(ProceedingJoinPoint proceedingJoinPoint){
+		System.out.println("EmployeeXMLConfigAspect:: Before invoking getName() method");
+		Object value = null;
+		try {
+			value = proceedingJoinPoint.proceed();
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		System.out.println("EmployeeXMLConfigAspect:: After invoking getName() method. Return value="+value);  ***
+		return value;
+	}
+	
+10) Dummy Name
+
+SpringName
+
+	employeeService.getEmployee().setName("Pankaj");
+
+1) EmployeeAspect
+    
+	@Before("execution(* com.journaldev.spring.service.*.get*())")
+	public void getAllAdvice(){
+		System.out.println("Service method getter called");
+	}    	
+	
+2) EmployeeAspectPointcut
+
+	@Before("allMethodsPointcut()")
+	public void allServiceMethodsAdvice(){
+		System.out.println("Before executing service method");
+	}
+	
+3) EmployeeAspectJoinPoint
+
+	//Advice arguments, will be applied to bean methods with single String argument
+	@Before("args(name)")
+	public void logStringArguments(String name){
+		System.out.println("String argument passed="+name);  (name=Pankaj)
+	}
+	
+3) EmployeeAspectJoinPoint
+
+	@Before("execution(public void com.journaldev.spring.model..set*(*))")
+	public void loggingAdvice(JoinPoint joinPoint){
+		System.out.println("Before running loggingAdvice on method="+joinPoint.toString());   (joinPoint = execution(void com.journaldev.spring.model.Employee.setName(String)))
+		
+		System.out.println("Agruments Passed=" + Arrays.toString(joinPoint.getArgs()));  (args = Pankaj)
+
+	}
+	
+4) EmployeeAnnotationAspect (works with Loggable for Employee setName)
+
+	@Before("@annotation(com.journaldev.spring.aspect.Loggable)")
+	public void myAdvice(){
+		System.out.println("Executing myAdvice!!");
+	}	
+	
+5) EmployeeAfterAspect
+
+	@After("args(name)")
+	public void logStringArguments(String name){
+		System.out.println("Running After Advice. String argument passed="+name);
+	}
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -1,0 +1,52 @@
+James,
+
+ 
+
+Please read on the following for supporting the security features we talked earlier:
+
+ 
+
+https://www.owasp.org/index.php/Top_10_2013-Top_10
+
+ 
+
+ 
+
+Also, read up in general on the following topics:
+
+ 
+
+·         Cross site scripting (XSS)
+
+·         Cross site Request Forgery (CSRF)
+
+·         Frame busting or Clickjacking (XFS)
+
+·         SQL Injection
+
+·         Denial of service
+
+ 
+
+Thanks,
+
+Hemant
+
+
+
+
+SQL Injection - 
+Use parameters with SQL for safety.
+Hibernate example:
+	Query safeHQLQuery = session.createQuery("from Inventory where productID=:productid");
+ 	safeHQLQuery.setParameter("productid", userSuppliedParameter);
+
+Use stored procedures
+
+Use white list input validation
+
+Escape Strings
+Oracle 10 example:
+	place { and } around the string to escape the entire string
+
+

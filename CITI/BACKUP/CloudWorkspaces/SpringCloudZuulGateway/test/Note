@@ -1,0 +1,17 @@
+
+
+
+cd C:\a1\neontest\workspaces\CloudWorkspaces\SpringCloudZuulBook\test\target
+java -jar test.jar
+
+cd C:\a1\neontest\workspaces\CloudWorkspaces\SpringCloudZuulGateway\test\target
+java -jar test.jar
+
+
+http://localhost:8090/available
+
+http://localhost:8090/checked-out
+
+http://localhost:8080/books/available
+
+http://localhost:8080/books/checked-out

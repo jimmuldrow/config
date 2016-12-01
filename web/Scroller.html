@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>change demo</title>
+
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  
+ <style>
+ #container{
+		margin: 20px;
+		padding: 20px;
+		border: 1px solid black;
+		width: 60%;
+ }
+ </style>
+  
+ 
+  
+</head>
+<body>
+
+<div id="container">
+
+</div>
+ 
+
+ 
+<script>
+
+var i = 0;
+
+setInterval(function(){
+	i++;	
+	$("#container").append("Here is line " + i + ".<br>");
+	window.scroll(0,document.body.offsetHeight);
+	//window.scrollTo(0, document.body.scrollHeight);
+}, 1000);
+
+</script>
+ 
+</body>
+</html>

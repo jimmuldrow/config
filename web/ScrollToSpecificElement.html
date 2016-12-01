@@ -1,0 +1,45 @@
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>change demo</title>
+
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  
+ <style>
+
+ </style>
+  
+ 
+  
+</head>
+<body>
+
+<div id="container">
+
+
+</div>
+ 
+
+ 
+<script>
+
+var a = 0;
+
+for(var i = 0; i < 100; i++){
+	$("#container").append("<div id='div" + i + "'>This is Line " + i + "</div>");
+}
+
+var offset = $("#div55").offset();
+
+
+$('html, body').animate({
+    scrollTop: offset.top,
+    scrollLeft: offset.left
+});
+
+
+</script>
+ 
+</body>
+</html>

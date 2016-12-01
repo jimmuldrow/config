@@ -1,0 +1,4 @@
+
+http://localhost:8080/test/services/MavenAxis2WebService?wsdl
+
+http://localhost:8080/test/services/MavenAxis2WebService/ping?first=Bob&last=Smith&streetAddressOne=13%20Mockingbird%20Ln&streetAddressTwo=Apt%202874&city=Dallas&state=TX&zip=73907

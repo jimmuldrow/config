@@ -1,0 +1,20 @@
+
+
+
+
+Download Node.js / npm
+
+From npm download TypeScript using:
+	npm install -g typescript
+
+Download GIT
+	cd ...
+	git clone ...
+
+
+
+cd C:\a1\AngularJsTwo\angular2-quickstart
+
+npm install
+
+npm start

@@ -1,0 +1,174 @@
+							<th colspan="4"> 
+								
+								    
+									<input type="submit" class="button" value="Send" name="action:flowPacketCommandInBackGround.action" id="flowButton">
+
+									<input type="submit" value="Cancel Packet" name="action:cancelPacket.action" id="cancelPacket">
+
+									<input type="submit" class="packetSummary" value="Packet Summary" name="action:packetSummary.action" id="packetSummaryReady">
+
+									<input type="submit" value="Stop Packet" name="mts.stopPacket.button" id="stopPacket" style="display: none;">
+
+								 </th>
+
+flowPacketCommandInBackground is in 
+	SPPAWeb\src\com\att\sppa\web\action\packet\PacketAction.java (starting line 643)
+	struts-packets.xml (lines 43-44)
+	Webroot\jsp\MTS\MTSPacketDetailsView.jsp
+
+
+The flowPacketCommandInBackGround method in PacketAction Class returns constants for error, failure and background
+
+
+struts-packets.xml has the following:
+
+		<action name="flowPacketCommandInBackGround" class="com.att.sppa.web.action.packet.PacketAction"
+			method="flowPacketCommandInBackGround">
+			<result name="BACKGROUND" type="tiles">/MTSPacketDetailsForBackGround.tiles
+			</result>
+			<result name="FAILURE" type="tiles">/failedMTSPacketDetails.tiles
+			</result>
+			<result name="ERROR" type="tiles">/failedMTSPacketDetails.tiles
+			</result>
+		</action>
+
+
+
+MTSPacketDetailsView.jsp has the following:
+
+mtsPacketDTO.status can equal 
+HOLD, 
+CANCELED, 
+SCHEDULED, RETRY,  
+RECEIVED, READY, FLOWING, 
+INCOMPLETE WITH ERRORS, 
+COMPLETED WITH ERRORS, COMPLETED, IMPORT ERROR, ARCHIVED
+
+					<table class="showDataTable">
+						<tr>
+							<th colspan="4"><s:if
+									test="%{mtsPacketDTO.status == 'HOLD'}">
+									<s:submit key="label.execute" id="flowButton"
+										action="flowPacketCommandInBackGround.action" cssClass="button" />
+									<s:submit key="mts.releaseHold.button" id="releaseHoldButton"
+										action="releaseHoldPacket.action" cssClass="packetSummary" />
+									<s:submit key="mts.cancelPacket.button" id="cancelPacket"
+										action="cancelPacket.action" />
+									<s:submit key="mts.packetSummary.button" id="packetSummaryHold"
+										action="packetSummary.action"  cssClass="packetSummary"/> 
+									<s:submit key="mts.stopPacket.button" id="stopPacket" />
+								</s:if> 
+								
+								<s:if test="%{mtsPacketDTO.status == 'CANCELED'}">
+									<s:submit key="mts.packetSummary.button" id="packetSummaryHold"
+										action="packetSummary.action"  cssClass="packetSummary"/> 
+
+								</s:if> <s:if test="%{mtsPacketDTO.status == 'INCOMPLETE'}">
+									<s:submit key="label.execute" id="flowButton"
+										action="flowPacketCommandInBackGround.action" cssClass="button" />
+									<s:submit key="mts.cancelPacket.button" id="cancelPacket"
+										action="cancelPacket.action" />
+									<s:submit key="mts.packetSummary.button"
+										id="packetSummaryReady" action="packetSummary.action"
+										cssClass="packetSummary" />
+									<s:submit key="mts.stopPacket.button" id="stopPacket" />
+								</s:if> <s:if test="%{mtsPacketDTO.status == 'SCHEDULED' ||  mtsPacketDTO.status == 'RETRY'}" >
+								<s:submit key="label.execute" id="flowButton"
+										action="flowPacketCommandInBackGround.action" cssClass="button" />
+									<s:submit key="label.update" id="schedulePacketUpdate"
+										action="schedulePacket.action" cssClass="button" />
+									<s:submit key="mts.unSchedulePacket.button"
+										id="unSchedulePacket" action="unSchedulePacket.action"
+										cssClass="packetSummary" />
+									<s:submit key="mts.cancelPacket.button" id="cancelPacket"
+										action="cancelPacket.action" />
+									<s:submit key="mts.packetSummary.button"
+										id="packetSummarySchedulerButton"
+										action="packetSummary.action" cssClass="packetSummary" />
+									<s:submit key="mts.stopPacket.button" id="stopPacket" />
+
+								</s:if> <s:if
+									test="%{mtsPacketDTO.status == 'RECEIVED' || mtsPacketDTO.status == 'READY' || mtsPacketDTO.status == 'FLOWING'}">
+									<s:submit key="label.hold" id="holdButton"
+										action="holdPacket.action" cssClass="button" />
+
+									<s:submit key="label.execute" id="flowButton"
+										action="flowPacketCommandInBackGround.action" cssClass="button" />
+
+									<s:submit key="label.schedule" id="scheduleButton"
+										cssClass="button" />
+
+									<s:submit key="mts.cancelPacket.button" id="cancelPacket"
+										action="cancelPacket.action" />
+
+									<s:submit key="mts.packetSummary.button"
+										id="packetSummaryReady" action="packetSummary.action"
+										cssClass="packetSummary" />
+
+									<s:submit key="mts.stopPacket.button" id="stopPacket" />
+
+									<s:submit key="label.save" id="saveSchedule" cssClass="button"
+										action="schedulePacket.action" />
+									<s:submit key="label.cancel" id="cancelSchedule"
+										cssClass="button" />
+								</s:if> <s:if test="%{mtsPacketDTO.status == 'INCOMPLETE WITH ERRORS'}">
+									<s:submit key="label.execute" id="flowButton" cssClass="button"
+										action="flowPacketCommandInBackGround.action" />
+									<s:submit key="mts.cancelPacket.button" id="cancelPacket"
+										action="cancelPacket.action" />
+									<s:submit key="mts.packetSummary.button"
+										id="packetSummaryReady" action="packetSummary.action"
+										cssClass="packetSummary" />
+									<s:submit key="mts.stopPacket.button" id="stopPacket" />
+								</s:if> <s:if
+									test="%{mtsPacketDTO.status == 'COMPLETED WITH ERRORS' || mtsPacketDTO.status == 'COMPLETED' || 
+								              mtsPacketDTO.status == 'IMPORT ERROR' || mtsPacketDTO.status == 'ARCHIVED'}">
+									<s:submit key="mts.packetSummary.button"
+										id="packetSummaryReady" action="packetSummary.action"
+										cssClass="packetSummary" />
+								</s:if></th>
+
+						</tr>
+					</table>
+
+
+
+
+=================================================================================================================================
+
+17:02:10,396 INFO  [STDOUT] 2013 Aug 30 17:02:10 INFO  (com.att.sppa.web.action.welcome.WelcomeAction:116) - USER LOGIN this.getSessionUserId()- null
+
+
+
+17:07:09,028 INFO  [STDOUT] 2013 Aug 30 17:07:09 INFO  (com.att.sppa.web.action.welcome.WelcomeAction:143) - NO ROLE FOR USER. LOGIN ABORTED
+
+17:07:15,982 INFO  [STDOUT] 2013 Aug 30 17:07:15 INFO  (com.att.sppa.web.action.welcome.WelcomeAction:116) - USER LOGIN this.getSessionUserId()- null
+
+17:07:16,122 INFO  [STDOUT] 2013 Aug 30 17:07:16 INFO  (com.att.sppa.web.action.welcome.WelcomeAction:147) - Role set is GUEST
+
+
+
+
+17:02:17,752 INFO  [STDOUT] 2013 Aug 30 17:02:17 ERROR (com.att.sppa.web.action.welcome.WelcomeAction:178) - Exception occured while getting the packets by userId
+
+17:02:17,752 INFO  [STDOUT] com.att.sppa.app.exception.DAOException: SPPA APPLICATION MESSAGE : Error in MTSPacketDAO.queryPacketsByUserId  SQL Error Code: 4063 
+and SQL Message:  ORA-04063: package body "SPPAADMIN.PKG_SPPA_MTS_PACKET_PROCESSING" has errors
+
+17:02:17,752 INFO  [STDOUT] ORA-06508: PL/SQL: could not find program unit being called: "SPPAADMIN.PKG_SPPA_MTS_PACKET_PROCESSING"
+
+17:02:17,752 INFO  [STDOUT] ORA-06512: at line 1
+
+17:02:17,752 INFO  [STDOUT] 
+
+17:02:17,752 INFO  [STDOUT] 	at com.att.sppa.app.dao.MTSPacketDAO.queryPacketsByUserId(MTSPacketDAO.java:450)
+
+
+
+
+
+
+
+
+
+
+
