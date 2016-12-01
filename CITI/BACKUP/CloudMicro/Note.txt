@@ -29,6 +29,8 @@ Example of pushing to GitHub
 
 $ git clone https://github.com/jimmuldrow/config
 
+$ git clone https://github.com/jimmuldrow/config
+
 (Here delete folder from clone and add what's to be added directly under the master repository)
 
 $ git add .
