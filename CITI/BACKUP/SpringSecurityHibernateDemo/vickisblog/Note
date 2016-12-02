@@ -1,5 +1,0 @@
-
-
-	<c:url var="saveUrl" value="/main/creditcard/add?id=${personId}" />
-	<form:form modelAttribute="creditCard" method="POST"
-		action="${saveUrl}">

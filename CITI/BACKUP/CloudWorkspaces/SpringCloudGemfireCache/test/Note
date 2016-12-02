@@ -1,5 +1,0 @@
-
-
-
-cd C:\a1\neontest\workspaces\CloudWorkspaces\SpringCloudGemfireCache\test\target
-java -jar gs-caching-gemfire-0.1.0.jar
