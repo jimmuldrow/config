@@ -1,0 +1,105 @@
+C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqld.exe, Version: 5.7.16-log (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: (null)
+Time                 Id Command    Argument
+C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqld.exe, Version: 5.7.16-log (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: (null)
+Time                 Id Command    Argument
+C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqld.exe, Version: 5.7.16-log (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: (null)
+Time                 Id Command    Argument
+# Time: 2016-10-14T19:24:26.968254Z
+# User@Host: root[root] @ localhost [127.0.0.1]  Id:    21
+# Query_time: 417.595181  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 0
+use world;
+SET timestamp=1476473066;
+drop table if exists Bank;
+# Time: 2016-10-14T19:24:26.968754Z
+# User@Host: root[root] @ localhost [127.0.0.1]  Id:    20
+# Query_time: 480.907842  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1476473066;
+drop table if exists Bank;
+# Time: 2016-10-14T19:24:26.968754Z
+# User@Host: root[root] @ localhost [127.0.0.1]  Id:    19
+# Query_time: 648.986949  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1476473066;
+drop table if exists Bank;
+# Time: 2016-10-14T19:24:26.968754Z
+# User@Host: root[root] @ localhost [127.0.0.1]  Id:    18
+# Query_time: 1233.263925  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1476473066;
+drop table if exists Bank;
+# Time: 2016-10-14T19:24:26.968754Z
+# User@Host: root[root] @ localhost [127.0.0.1]  Id:    17
+# Query_time: 2631.512864  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1476473066;
+drop table if exists Bank;
+# Time: 2016-10-14T19:24:26.968754Z
+# User@Host: root[root] @ localhost [127.0.0.1]  Id:    12
+# Query_time: 2748.640273  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1476473066;
+drop table if exists Bank;
+# Time: 2016-10-14T19:24:26.968754Z
+# User@Host: root[root] @ localhost [127.0.0.1]  Id:    11
+# Query_time: 2997.780615  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1476473066;
+drop table if exists Bank;
+# Time: 2016-10-14T19:24:26.968754Z
+# User@Host: root[root] @ localhost [127.0.0.1]  Id:    10
+# Query_time: 3188.423339  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1476473066;
+drop table if exists Bank;
+# Time: 2016-10-14T19:24:26.968754Z
+# User@Host: root[root] @ localhost [127.0.0.1]  Id:     9
+# Query_time: 3262.303730  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1476473066;
+drop table if exists Bank;
+# Time: 2016-10-14T19:24:26.991256Z
+# User@Host: root[root] @ localhost [127.0.0.1]  Id:     8
+# Query_time: 8889.203219  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1476473066;
+drop table if exists Bank;
+C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqld.exe, Version: 5.7.16-log (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: (null)
+Time                 Id Command    Argument
+C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqld.exe, Version: 5.7.16-log (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: (null)
+Time                 Id Command    Argument
+C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqld.exe, Version: 5.7.16-log (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: (null)
+Time                 Id Command    Argument
+C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqld.exe, Version: 5.7.16-log (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: (null)
+Time                 Id Command    Argument
+C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqld.exe, Version: 5.7.16-log (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: (null)
+Time                 Id Command    Argument
+C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqld.exe, Version: 5.7.16-log (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: (null)
+Time                 Id Command    Argument
+C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqld.exe, Version: 5.7.16-log (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: (null)
+Time                 Id Command    Argument
+C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqld.exe, Version: 5.7.16-log (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: (null)
+Time                 Id Command    Argument
+C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqld.exe, Version: 5.7.16-log (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: (null)
+Time                 Id Command    Argument
+C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqld.exe, Version: 5.7.16-log (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: (null)
+Time                 Id Command    Argument
+C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqld.exe, Version: 5.7.16-log (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: (null)
+Time                 Id Command    Argument
+C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqld.exe, Version: 5.7.16-log (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: (null)
+Time                 Id Command    Argument
+C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqld.exe, Version: 5.7.16-log (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: (null)
+Time                 Id Command    Argument
+C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqld.exe, Version: 5.7.16-log (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: (null)
+Time                 Id Command    Argument
+C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqld.exe, Version: 5.7.16-log (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: (null)
+Time                 Id Command    Argument
