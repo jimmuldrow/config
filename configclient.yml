@@ -1,0 +1,6 @@
+configuration:  
+  projectName: configclient
+server:
+  port: 3333
+message:
+  greeting: Configuration test

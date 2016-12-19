@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ENTRY timestamp='13:08:22'>CREATE  TABLE users (&#x0A;  username VARCHAR(45) NOT NULL ,&#x0A;  password VARCHAR(45) NOT NULL ,&#x0A;  enabled TINYINT NOT NULL DEFAULT 1 ,&#x0A;  PRIMARY KEY (username))</ENTRY>
