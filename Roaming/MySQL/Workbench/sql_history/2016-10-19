@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<ENTRY timestamp='17:04:47'>CREATE TABLE EMPLOYEE(&#x0A;    id INT NOT NULL auto_increment, &#x0A;    name VARCHAR(50) NOT NULL,&#x0A;    joining_date DATE NOT NULL,&#x0A;    salary DOUBLE NOT NULL,&#x0A;    ssn VARCHAR(30) NOT NULL UNIQUE,&#x0A;    PRIMARY KEY (id)&#x0A;)</ENTRY>
