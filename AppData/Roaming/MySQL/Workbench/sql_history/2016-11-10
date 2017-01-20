@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<ENTRY timestamp='14:32:11'>select * from users</ENTRY>
-<ENTRY timestamp='22:37:42'>create table APP_USER (&#x0A;   id BIGINT NOT NULL AUTO_INCREMENT,&#x0A;   sso_id VARCHAR(30) NOT NULL,&#x0A;   password VARCHAR(100) NOT NULL,&#x0A;   first_name VARCHAR(30) NOT NULL,&#x0A;   last_name  VARCHAR(30) NOT NULL,&#x0A;   email VARCHAR(30) NOT NULL,&#x0A;   PRIMARY KEY (id),&#x0A;   UNIQUE (sso_id)&#x0A;)</ENTRY>
