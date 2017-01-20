@@ -1,0 +1,5 @@
+
+
+
+cd C:\a1\neontest\workspaces\CloudWorkspaces\SpringCloudGemfireAccessingData\test\target
+java -jar test.jar

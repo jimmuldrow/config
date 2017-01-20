@@ -1,0 +1,19 @@
+
+
+
+cd C:\a1\neontest\workspaces\CloudWorkspaces\SpringCloudHystrixBookstore\test\target
+java -jar test.jar
+
+
+cd C:\a1\neontest\workspaces\CloudWorkspaces\SpringCloudHystrixReading\test\target
+java -jar test.jar
+
+
+http://localhost:8080/to-read
+
+
+First run both. The result should come from the bookstore applications as:
+	Spring in Action (Manning), Cloud Native Java (O'Reilly), Learning Spring Boot (Packt)
+
+Then shut down the bookstore. The result should be the Hystrix default:
+	Cloud Native Java (O'Reilly)

@@ -1,0 +1,40 @@
+
+
+
+cd C:\a1\neontest\Test\eureka\test\target
+
+java -jar registration.jar
+
+cd C:\a1\neontest\Test\accounts\test\target
+
+java -jar accounts.jar
+
+cd C:\a1\neontest\Test\web\test\target
+
+java -jar web.jar
+
+
+http://localhost:1111/
+
+http://localhost:2222/accountById/2
+
+http://localhost:2222/configclient/default
+
+http://localhost:3333/accountById/2
+
+
+==========================================================================
+
+Example of pushing to GitHub
+
+git config --global core.longpaths true –
+
+$ git clone https://github.com/jimmuldrow/config
+
+(Here delete folder from clone and add what's to be added directly under the master repository)
+
+$ git add .
+
+$ git commit -m "Add existing file"
+
+$ git push https://github.com/jimmuldrow/config master
