@@ -1,9 +1,0 @@
-
-
-localhost:8080/test	Student form validation (annotations instead of XML)
-
-localhost:8080/test/welcome	(requires no authentication)
-
-localhost:8080/test/admin	(requires authentication, has access to admin and dba)
-
-localhost:8080/test/dba		(requires authentication, has access to dba but not admin)
