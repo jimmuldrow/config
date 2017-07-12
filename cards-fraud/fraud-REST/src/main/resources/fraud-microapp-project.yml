@@ -1,0 +1,10 @@
+
+ccp:
+  gemfire:
+    enable: true
+###### Gemfire Configuration Starts here ##########
+#  gemfire:
+    locators: vm-e981-342d.nam.nsroot.net[10334]
+    properties:
+      name: fraud-microapp-project
+###### Gemfire Configuration Ends here ##########    

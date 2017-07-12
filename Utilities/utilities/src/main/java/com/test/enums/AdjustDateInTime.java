@@ -1,0 +1,12 @@
+package com.test.enums;
+
+public enum AdjustDateInTime {
+	ADD_DAYS,
+	ADD_WEEKS,
+	ADD_MONTHS,
+	ADD_YEARS,
+	SUBTRACT_DAYS,
+	SUBTRACT_WEEKS,
+	SUBTRACT_MONTHS,
+	SUBTRACT_YEARS
+}

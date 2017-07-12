@@ -1,0 +1,19 @@
+
+
+
+Create Git repository C:\Users\jmuld\Desktop\config folder
+
+Make config a Git repository
+
+Add test-config.yml to config with:  message: Hello from Spring
+
+From Git Bash add:
+	$ cd /c/Users/jmuld/Desktop/config
+	$ git add .
+	$ git commit -m "Add existing file"
+	
+For Git url specify: spring:cloud:config:server:git:uri: file://${user.home}/Desktop/config
+
+In application boot startup, use annotation import org.springframework.cloud.config.server.EnableConfigServer
+
+In client microservice, specify:  spring:application:name: test-config

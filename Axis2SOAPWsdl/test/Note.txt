@@ -1,0 +1,23 @@
+
+
+
+cd C:\a1\neontest\workspaces\Hold
+
+
+%AXIS2_HOME%\bin\WSDL2Java -uri C:\a1\neontest\workspaces\Hold\MavenAxis2WebService.wsdl -p org.apache.axis2.axis2userguide -d xmlbeans -s
+
+
+%AXIS2_HOME%\bin\wsdl2java.bat -uri C:\a1\neontest\workspaces\Hold\MavenAxis2WebService.wsdl -p samples.quickstart.clients -d jibx -s -uw -o build\client
+
+
+samples.quickstart.clients.JiBXClient uses the other classes.
+
+
+In samples.quickstart.clients.MavenAxis2WebServiceStub method ping, all strings equal to "test.com" had to be changed to 
+"http://webservice.MavenAxis2WebService/"
+
+
+
+
+
+https://axis.apache.org/axis2/java/core/docs/userguide-build.ingservices.html#buildservices
