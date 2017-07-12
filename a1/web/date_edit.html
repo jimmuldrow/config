@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>change demo</title>
+
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+</head>
+<body>
+ 
+ Year: <input type="text" id="year"> Month: <input type="text" id="month"> Day: <input type="text" id="day">
+ <button id="btn1">Click</button>
+
+ 
+<script>
+
+$("#btn1").click(function(){
+	var year = $("#year").val();
+	var month = $("#month").val();
+	var day = $("#day").val();
+	var isDateValid = validDate(year, month, day);
+	alert("Is date valid?  " + isDateValid);
+});
+
+function validDate(year, month, day){
+	var dayobj = new Date(year, month-1, day);	
+	
+	if ((dayobj.getMonth()+1!=month)||(dayobj.getDate()!=day)||(dayobj.getFullYear()!=year)){
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+
+
+
+
+</script>
+ 
+</body>
+</html>

@@ -1,0 +1,271 @@
+<html><head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<link type="text/css" href="css/style.css" rel="stylesheet">
+<title>Welcome to ATT
+</title>
+</head>
+  <body><div>
+       <table cellspacing="1" cellpadding="1" align="center">
+              <tbody><tr>
+                     <td colspan="2">
+
+<!--  header id is used for setting the Header Logo in the background and also to set the width and height of the header section -->
+	<div id="headerid">
+		<img src="images/att_logo.jpg" id="attLogo"> 
+		
+		<div class="headername">
+			Switch Packet Processing Application
+		 </div>
+	</div>
+
+<div align="right" style="color: #0000FF; font-weight: bold; ">
+	Logged in as mb8424 </div>
+
+
+                     </td>
+              </tr>
+              <tr>
+                     <td valign="top">
+
+
+<script src="jquery/jquery-1.9.1.min.js" type="text/javascript">
+	
+</script>
+<script src="jquery/Menu/menu.js" type="text/javascript">
+</script>
+
+<div class="cssmenu">
+	<ul id="nav">
+	
+	 
+		<li><a href="anpwelcome.action">Administration</a></li>
+			 
+			
+	
+    
+    
+	<li><a href="javascript:void(0)"><img src="images/icon_plus.gif" class="plusSign"> SPPA</a>
+			<ul class="subNav" style="display: none;">
+			
+				<li><a href="queryReport.action">Reports</a></li>
+				
+			
+				<li><a href="javascript:void(0)">Search and View Logs</a></li>
+			
+				
+			
+			
+				<li><a href="javascript:void(0)"><img src="images/icon_plus.gif" class="plusSign"> Group Administration</a>
+					<ul class="subsubNav" style="display: none;">
+					
+						<li><a href="groupDefinition.action">Group Definition</a>
+						</li>
+						
+						
+						
+						
+					</ul>
+				</li>
+			 	
+			 
+				<li><a href="javascript:void(0)"><img src="images/icon_plus.gif" class="plusSign"> Switch Administration</a>
+					<ul class="subsubNav" style="display: none;">
+					
+						<li><a href="querySwitch.action">Switch Definition</a></li>
+						
+						
+					</ul>
+				</li>
+				
+			
+				<li><a href="javascript:void(0)"><img src="images/icon_plus.gif" class="plusSign"> Utilities Administration</a>
+					<ul class="subsubNav" style="display: none;">
+					
+							
+						<li><a href="javascript:void(0)">Archived Packet Viewer</a>
+						</li>
+						
+						
+					</ul>
+				</li>
+			
+			
+				<li><a href="welcome.action">SPPA Home</a></li>
+			
+			</ul>
+		</li>
+		
+		
+		
+		<li><a href="/ROTAWeb/welcome.action">ROTA</a></li>
+		
+		
+		
+		<li><a href="javascript:void(0)">Marketing</a></li>
+	    
+	    
+		<li><a href="docs/help.doc">Help</a>
+		</li>
+		
+		<li><a href="anpwelcome.action">Home</a></li>
+		<li><a href="javascript:void(0)">Logout</a></li>
+	</ul>
+</div>
+
+</td>
+                     <td valign="top">
+
+
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<link type="text/css" href="css/style.css" rel="stylesheet">
+<link href="css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+<script src="jquery/jquery-ui-1.10.3.custom.js" type="text/javascript"></script> 
+<title>
+</title>
+ 
+  <div>
+      
+
+
+
+<script src="jquery/Menu/load.js" type="text/javascript">
+	
+</script>
+<script src="jquery/packets/packetSummary.js" type="text/javascript"></script>
+
+
+	<div align="left" style="height:520px; overflow:auto" class="mainBodyid">
+		<form method="post" action="/SPPAWeb/welcome.action;jsessionid=F59F40B6B28280FBD43D87E299A639CA" name="welcome" id="welcome">
+			<table class="showReportTable">
+				<tbody><tr>
+					<th colspan="7">MTS PACKETS LIST</th>
+				</tr>
+			</tbody></table>
+			
+
+
+
+
+
+	<table class="showTable">
+		<tbody><tr>
+			<td colspan="3"></td>
+			<td colspan="3"></td>
+			<td align="center"><a href="/SPPAWeb/buildpacketExcelDocumentByUserId.action;jsessionid=F59F40B6B28280FBD43D87E299A639CA?mtsPacketDTO.userId=9469&amp;mtsPacketDTO.totalRows=1" id="welcome_">Save As Excel</a></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="3" class="showDataTablefont"><label id="welcome_label_sort">Sort By</label> <label id="welcome_">: </label> <select id="welcome_mtsPacketDTO_sortBy" name="mtsPacketDTO.sortBy">
+    <option selected="selected" value="PACKET_NUMBER">PACKET NAME</option>
+    <option value="PACKET_OFFICE">PACKET OFFICE</option>
+    <option value="STATUS_TIME">PROCESS DATE</option>
+    <option value="RECEIVED_DATE">RECEIVED DATE</option>
+    <option value="PACKET_STATUS">STATUS</option>
+    <option value="FIRST_NAME||LAST_NAME">UPDATED BY</option>
+
+
+</select>
+ <label id="welcome_label_space"></label></td>
+			<td align="center" colspan="3" class="showDataTablefont"><label id="welcome_label_order">Order By</label> <label id="welcome_">: </label> <input type="radio" value="ASC" checked="checked" id="sortOrderASC" name="mtsPacketDTO.sortOrder"><label for="sortOrderASC">Ascending</label>
+<input type="radio" value="DESC" id="sortOrderDESC" name="mtsPacketDTO.sortOrder"><label for="sortOrderDESC">Descending</label>
+</td>
+			<td><a class="displayLink" href="/SPPAWeb/getpacketSummary.action;jsessionid=F59F40B6B28280FBD43D87E299A639CA?mtsPacketDTO.userId=9469" id="welcome_">Refresh</a></td>
+		</tr>
+	</tbody></table>
+
+
+
+
+			<div style="height: 350px;overflow: auto;" id="scrollContent">
+				<table class="showReportTable">
+					<tbody><tr>
+						<th id="queryHeader"><label id="welcome_label_rowNo">Row No</label>
+						</th><th id="queryHeader"><label id="welcome_mts_packetName_label">Packet Name</label>
+						</th>
+						<th id="queryHeader"><label id="welcome_mts_packetOffice_label">Packet Office</label>
+						</th>
+						<th id="queryHeader"><label id="welcome_mts_receivedDate_label">Received Date</label>
+						</th>
+						<th id="queryHeader"><label id="welcome_mts_status_label">Status</label></th>
+						<th id="queryHeader"><label id="welcome_mts_processDate_label">Process Date</label>
+						</th>
+						<th id="queryHeader"><label id="welcome_mts_updatedBy_label">Updated By</label></th>
+
+					</tr>
+					
+						<tr class="linkSelector">
+							<td align="center">1</td>
+							<td align="center" class="viewOnly"><a href="/SPPAWeb/showPacket.action;jsessionid=F59F40B6B28280FBD43D87E299A639CA?mtsPacketDTO.packetId=29&amp;mtsPacketDTO.currentSearchCriteria=SplashPage&amp;mtsPacketDTO.prevPage=PacketSummary&amp;searchCriteriaDTO.moduleName=PacketProcess&amp;searchCriteriaDTO.pageNo=1&amp;searchCriteriaDTO.rowsPerPage=25&amp;searchCriteriaDTO.totalRows=1&amp;searchCriteriaDTO.sortBy=PACKET_NUMBER&amp;searchCriteriaDTO.sortOrder=ASC&amp;searchCriteriaDTO.previousSearchCriteria=9469" id="welcome_">MU0990253</a>
+							</td>
+							
+								<td align="center">MDLDTXMUDS0</td>
+							
+							
+							<td align="center">08/30/2013 11:16:59 AM</td>
+							<td align="center">INCOMPLETE WITH ERRORS
+							</td>
+							<td align="center">08/30/2013 11:55:15 AM
+							</td>
+							<td align="center">MANISH BHATIA
+							</td>
+						</tr>
+					
+					<tr>
+
+						
+
+
+					</tr>
+					
+				</tbody></table>
+			</div>
+			
+
+
+
+<table class="showTable">
+
+	<tbody><tr>
+		<td class="showDataTablefont"><label id="welcome_label_displaySize">Display Size</label>
+			<label id="welcome_">: </label> <input type="text" class="mediumTextBox" id="rowsPerPage" value="25" name="mtsPacketDTO.rowsPerPage"> <a class="displayLink" href="/SPPAWeb/getpacketSummary.action;jsessionid=F59F40B6B28280FBD43D87E299A639CA?mtsPacketDTO.userId=9469" id="welcome_">Refresh</a>
+		</td>
+		<td class="showDataTablefont"> <label id="welcome_">Records </label> <label id="welcome_mtsPacketDTO_startRowNum">1</label> <label id="welcome_"> to </label> <label id="welcome_mtsPacketDTO_endRowNum">1</label> <label id="welcome_ of "> of </label> <label id="welcome_mtsPacketDTO_totalRows">1</label> 
+		</td>
+	</tr>
+</tbody></table>
+
+
+
+
+			<input type="hidden" id="pageNo" value="1" name="mtsPacketDTO.pageNo">
+			<input type="hidden" id="welcome_mtsPacketDTO_prevPage" value="switch" name="mtsPacketDTO.prevPage">
+			<input type="hidden" id="oldRowsPerPage" value="25" name="mtsPacketDTO.oldRowsPerPage">
+		</form>
+
+
+
+
+	</div>
+
+
+	<div class="loading">
+		<div>
+			Loading Please wait <br> <img src="images/loading4.gif">
+		</div>
+	</div>
+
+
+
+
+
+  </div>
+</td>
+              </tr>
+              <tr>
+                     <td colspan="2">
+
+<div id="footerid">Copyright &copy;</div></td>
+              </tr>
+       </tbody></table>
+       </div>
+
+</body></html>

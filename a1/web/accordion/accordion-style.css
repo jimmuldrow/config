@@ -1,0 +1,48 @@
+#accordionContainer{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5%;
+	font-family: arial;
+	font-size: 0.8em;
+	width: 60%;
+}
+
+.accordionButton{
+	border: 1px solid #27408B;
+	border-bottom: 1px solid white;
+	border-radius: 5px;
+	font-weight: bold;
+	padding-left: 3%;
+	padding-top: 0.5%;
+	padding-bottom: 0.5%;
+	background-color: #27408B;
+	color: #ffffff;
+	height: 2%;
+}
+
+.accordionContent{
+	border: 1px solid #dddddd;
+	border-radius: 5px;
+	padding: 3%;
+}
+
+.acc-orange{
+	border: 1px solid #ffeeaa;
+	border-bottom: 1px solid white;
+	background-color: #ffeeaa; 
+	color: #000000;
+}
+
+.acc-selected{
+	border: 1px solid #3A5FCD;
+	border-bottom: 1px solid white;
+	background-color: #3A5FCD; 
+	color: #ffffff;
+}
+
+.acc-notSelected{
+	border: 1px solid #27408B;
+	border-bottom: 1px solid white;
+	background-color: #27408B; 
+	color: #ffffff;
+}
