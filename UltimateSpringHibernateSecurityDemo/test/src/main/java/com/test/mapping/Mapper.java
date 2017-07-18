@@ -1,34 +1,28 @@
-package com.test.restfulweb;
+package com.test.mapping;
+
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.util.UriComponentsBuilder;
 import com.test.dto.PersonDTO;
 import com.test.model.Person;
 import com.test.model.CreditCard;
 import com.test.service.CreditCardService;
 import com.test.service.PersonService;
 import com.test.utilities.AES;
+import org.springframework.stereotype.Component;
 
-@RestController
-public class RestfulWebCC {
+@Component
+public class Mapper {
+	
 	@Autowired
 	private PersonService personService;
 	
 	@Autowired
-	private CreditCardService creditCardService;	
-	
-    @RequestMapping(value = "/listAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<PersonDTO>> listAllUsers() {
+	private CreditCardService creditCardService;		
+
+    public ResponseEntity<List<PersonDTO>> mapAllUsers() {
     	List<Person> people = personService.getAll();
     	List<PersonDTO> peopleDTO = new ArrayList<PersonDTO>();
 
@@ -57,5 +51,5 @@ public class RestfulWebCC {
         }
         
         return new ResponseEntity<List<PersonDTO>>(peopleDTO, HttpStatus.OK);
-    }	
+    }		
 }

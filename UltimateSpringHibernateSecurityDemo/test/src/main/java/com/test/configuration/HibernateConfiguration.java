@@ -1,6 +1,8 @@
 package com.test.configuration;
 
 import java.util.Properties;
+
+import javax.management.RuntimeErrorException;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import org.hibernate.SessionFactory;
@@ -44,7 +46,9 @@ public class HibernateConfiguration {
             dataSource = (DataSource) jndi.lookup("java:/comp/env/jdbc/world");
          } catch (NamingException e) {
             logger.error("NamingException for java:/comp/env/jdbc/world", e);
-        }
+            
+            System.out.println("******************** JNDI EXCEPTION");
+         }
         
         return dataSource;
     }

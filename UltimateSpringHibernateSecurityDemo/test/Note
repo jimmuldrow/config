@@ -1,31 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.0"
-    xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence 
-http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd ">
 
 
-    <persistence-unit name="odontonewPU">
-        <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <properties>
-            <property name="hibernate.show_sql" value="true" />
-            <property name="hibernate.format_sql" value="false" />
-<!--            <property name="hibernate.hbm2ddl.auto" value="update" /> -->
+For the versions of servlet.xml and context.xml seen through eclipse,
+as opposed to other versions:
 
-            <!--   C3P0 configuration -->
-            <property name="hibernate.connection.provider_class"
-                value="org.hibernate.connection.C3P0ConnectionProvider" />
+servlet.xml under GlobalNamingResources
 
-            <property name="hibernate.c3p0.max_size" value="100" />
-            <property name="hibernate.c3p0.min_size" value="0" />
-            <property name="hibernate.c3p0.acquire_increment" value="1" />
-            <property name="hibernate.c3p0.idle_test_period" value="300" />
-            <property name="hibernate.c3p0.max_statements" value="0" />
-            <property name="hibernate.c3p0.timeout" value="100" />
-        </properties>
-    </persistence-unit>
+<Resource name="jdbc/globalWorld" 
+      global="jdbc/globalWorld" 
+      auth="Container" 
+      type="javax.sql.DataSource" 
+      driverClassName="com.mysql.jdbc.Driver" 
+      url="jdbc:mysql://localhost:3306/world" 
+      username="jimmuldrow" 
+      password="Cummings1?"       
+      maxActive="100" 
+      maxIdle="20" 
+      minIdle="5" 
+      maxWait="10000"/>	    		
 
-</persistence>
+
+context.xml
+
+  <Resource name="jdbc/world" global="jdbc/globalworld auth="Container" type="javax.sql.DataSource"/>	
 
 
 
