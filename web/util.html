@@ -1,0 +1,151 @@
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>change demo</title>
+
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  
+
+ 
+  
+</head>
+<body>
+
+
+ 
+<script>
+
+var dt = new Date();
+var dt2 = addYears(dt, 13);
+alert(dt2);
+
+function addDays(dte, days){
+	if(validateDate(dte)){
+		if(isInteger(days)){
+			dte.setDate(dte.getDate() + days);
+			return dte;
+		}
+	}
+
+	return dte;
+}
+
+function addWeeks(dte, weeks){
+	if(validateDate(dte)){
+		if(isInteger(weeks)){
+			dte.setDate(dte.getDate() + (weeks * 7));
+			return dte;
+		}
+	}
+
+	return dte;
+}
+
+function addMonths(dte, months){
+	if(validateDate(dte)){
+		if(isInteger(months)){
+			dte.setMonth(dte.getMonth() + months);
+			return dte;
+		}
+	}
+
+	return dte;
+}
+
+function addYears(dte, years){
+	if(validateDate(dte)){
+		if(isInteger(years)){
+			dte.setFullYear(dte.getFullYear() + years);
+			return dte;
+		}
+	}
+
+	return dte;
+}
+
+function validateDate(dte){
+	var a = isValid(dte);
+	var b = a instanceof Date;
+	return b;
+}
+
+function isValidDate(year, month, day){
+	var integerValues = false;
+
+	if((isInteger(year)) && (isInteger(month)) && (isInteger(day))){
+		integerValues = true;
+	}
+	
+	if(integerValues === false){
+		return false;
+	}
+	
+	var dayobj = new Date(year, month-1, day);	
+	
+	if ((dayobj.getMonth() + 1 === month) && (dayobj.getDate() === day) && (dayobj.getFullYear() === year)){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
+function isMoney(v){
+	if(isNumber(v)){
+		a = v.toString();
+		var hasPennies = /^\d+\.(\d){1,2}$/.test(a);
+		var noPennies = isInteger(v);
+
+		if((hasPennies) || (noPennies)){
+			return true;
+		}
+	}
+	
+	return false;
+}
+
+function isDecimal(v){
+	if(isNumber(v)){
+		if(!Number.isInteger(v)){
+			return true;
+		}
+	}
+	
+	return false;
+}
+
+function isInteger(v){
+	if(isNumber(v)){
+		if(Number.isInteger(v)){
+			return true;
+		}
+	}
+	
+	return false;
+}
+
+function isNumber(v){
+	v = isValid(v);
+	
+	if(typeof(v) === "number"){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
+function isValid(v){
+	if((v === undefined) || (v === null)){
+		return "";
+	}
+	else{
+		return v;
+	}
+}
+
+</script>
+ 
+</body>
+</html>

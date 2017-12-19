@@ -1,0 +1,54 @@
+﻿
+https://www.codeproject.com/Articles/1068998/Running-Apache-Kafka-on-Windows-without-Cygwin
+
+http://ronnieroller.com/kafka/cheat-sheet
+
+https://medium.com/@harittweets/getting-started-with-apache-kafka-fe5a0b10a3be
+
+Zookeeper default port: 2181
+
+Under the Zookeeper /conf file, update the following:
+	Rename file “zoo_sample.cfg” to “zoo.cfg”
+
+Add ZOOKEEPER_HOME environment variable and add this plus "\bin" to PATH.
+
+Open a new cmd and type zkserver
+
+In \config\server.properties, update logs to the following:
+	log.dirs=C:\a1\Kafka\kafka_2.12-1.0.0\kafka-logs
+
+Open a second cmd to start Kafka:
+cd C:\a1\Kafka\kafka_2.12-1.0.0
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+Your Kafka will run on default port 9092 & connect to zookeeper’s default port which is 2181.
+
+Open a third cmd to create a topic:
+cd C:\a1\Kafka\kafka_2.12-1.0.0\bin\windows
+kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+
+Open a fourth cmd to create a producer:
+cd C:\a1\Kafka\kafka_2.12-1.0.0\bin\windows
+kafka-console-producer.bat --broker-list localhost:9092 --topic test
+
+Open a fifth cmd to create a consumer:
+cd C:\a1\Kafka\kafka_2.12-1.0.0\bin\windows
+kafka-console-consumer.bat --zookeeper localhost:2181 --topic test
+
+To delete a topic do the following:
+cd C:\a1\Kafka\kafka_2.12-1.0.0\bin\windows
+kafka-topics.bat --delete --zookeeper localhost:2181  --topic test
+
+To list all topics do the following:
+cd C:\a1\Kafka\kafka_2.12-1.0.0\bin\windows
+kafka-topics.bat --list --zookeeper localhost:2181
+
+
+
+
+Using the ConsoleConsumer with old consumer is deprecated and will be removed in a future major release. 
+Consider using the new consumer by passing [bootstrap-server] instead of [zookeeper].
+
+
+For each topic, one to many producers publish to a topic, and one to many consumers subscribe 
+to a topic. Consumers can be in groups.
