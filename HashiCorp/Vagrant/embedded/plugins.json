@@ -1,0 +1,9 @@
+{
+    "version": "1",
+    "installed": {
+        "vagrant-share": {
+            "ruby_version": "0",
+            "vagrant_version": "1.9.7"
+        }
+    }
+}
