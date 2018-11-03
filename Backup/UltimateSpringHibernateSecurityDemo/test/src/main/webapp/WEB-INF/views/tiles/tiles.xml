@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">  
+ 
+<tiles-definitions>  
+  
+   <!-- Base Definition -->
+   <definition name="base-definition"
+       template="/WEB-INF/views/tiles/layouts/defaultLayout.jsp">  
+       <put-attribute name="title" value="" />  
+       <put-attribute name="header" value="/WEB-INF/views/tiles/template/defaultHeader.jsp" />  
+       <put-attribute name="menu" value="/WEB-INF/views/tiles/template/defaultMenu.jsp" />  
+       <put-attribute name="body" value="" />  
+       <put-attribute name="footer" value="/WEB-INF/views/tiles/template/defaultFooter.jsp" />  
+   </definition>  
+   
+    <definition name="plainLayout"
+       template="/WEB-INF/views/tiles/layouts/plainLayout.jsp">  
+       <put-attribute name="title" value="" /> 
+       <put-attribute name="body" value="" />  
+    </definition>    
+    
+   <definition name="splash" extends="base-definition">  
+       <put-attribute name="title" value="Splash Page" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/splash.jsp" />  
+   </definition>        
+   
+   <definition name="add-credit-card" extends="base-definition">  
+       <put-attribute name="title" value="Add Credit Card" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/add-credit-card.jsp" />  
+   </definition>     
+   
+    <definition name="add-record" extends="base-definition">  
+       <put-attribute name="title" value="Add Record" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/add-record.jsp" />  
+   </definition>   
+   
+   <definition name="admin" extends="base-definition">  
+       <put-attribute name="title" value="Admin" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/admin.jsp" />  
+   </definition>     
+   
+   <definition name="edit-credit-card" extends="base-definition">  
+       <put-attribute name="title" value="Edit Credit Card" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/edit-credit-card.jsp" />  
+   </definition>      
+   
+   <definition name="edit-record" extends="base-definition">  
+       <put-attribute name="title" value="Edit Record" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/edit-record.jsp" />  
+   </definition>     
+   
+   <definition name="records" extends="base-definition">  
+       <put-attribute name="title" value="Records" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/records.jsp" />  
+   </definition>  
+  
+  <definition name="accessDenied" extends="plainLayout">  
+       <put-attribute name="title" value="Access Denied" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/accessDenied.jsp" />  
+   </definition>  
+   
+   <definition name="login" extends="plainLayout">  
+       <put-attribute name="title" value="Login" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/login.jsp" />  
+   </definition>    
+   
+   <definition name="registration" extends="plainLayout">  
+       <put-attribute name="title" value="Registration" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/registration.jsp" />  
+   </definition>    
+   
+   <definition name="registrationsuccess" extends="plainLayout">  
+       <put-attribute name="title" value="Registration Success" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/registrationsuccess.jsp" />  
+   </definition>   
+   
+   <definition name="userslist" extends="plainLayout">  
+       <put-attribute name="title" value="Users List" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/userslist.jsp" />  
+   </definition>     
+  
+</tiles-definitions>

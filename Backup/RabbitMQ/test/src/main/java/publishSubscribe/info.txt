@@ -1,0 +1,16 @@
+
+
+publish /subscribe
+
+An exchange is between the producer and the queue. 
+The exchange can send messages to all queues, some 
+queues or no queue.
+
+Exchange types are:
+	direct
+	topic
+	headers
+	fanout
+	
+This demo uses a fanout exchange to send every message to 
+every known queue.

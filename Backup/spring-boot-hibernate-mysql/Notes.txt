@@ -1,0 +1,74 @@
+
+
+From the MySql command line client:
+
+mysql> create database db_example; -- Create the new database
+mysql> create user 'springuser'@'localhost' identified by 'ThePassword'; 
+mysql> grant select, insert, delete, update on db_example.* to 'springuser'@'localhost';
+
+in application.properties: spring.jpa.hibernate.ddl-auto=none
+
+
+
+
+localhost:8080/demo/addUser?name=First&email=firstemail@someemailprovider.com
+
+localhost:8080/demo/addUser?name=Second&email=secondemail@someemailprovider.com
+
+localhost:8080/demo/addUser?name=Third&email=thirdemail@someemailprovider.com
+
+localhost:8080/demo/allUsers
+
+localhost:8080/demo/oneUser/2
+
+localhost:8080/demo/addCreditCardForUser/2/123450987612
+
+Note: ***** - User Set creditCard expects table user_credit_card
+Note: ***** - model camelCase requires table and column names camel_case
+
+create table hibernate_sequence (
+	next_val bigint 
+);
+
+insert into hibernate_sequence values(1);
+
+create table user (
+	id bigint primary key auto_increment,
+	name varchar(50) not null,
+	email varchar(50),
+	created_at date,
+	updated_at date
+);
+
+create table credit_card (
+	id bigint primary key auto_increment,
+	account_number varchar(20) not null
+);
+
+create table user_credit_card (
+	user_id bigint not null, 
+	credit_card_id bigint not null,
+	index fk_user_id (user_id),
+	constraint fk_user_id foreign key (user_id) references user(id),
+	index fk_credit_card_id(credit_card_id),
+	constraint fk_credit_card_id foreign key (credit_card_id) references credit_card(id)
+);
+
+drop table hibernate_sequence;
+drop table user_credit_card;
+drop table user;
+drop table credit_card;
+
+
+select u.id userId, c.id creditCardId, u.name, u.email, 
+u.created_at, u.updated_at, c.account_number
+from user u, credit_card c
+inner join user_credit_card uc
+where uc.user_id = u.id
+and uc.credit_card_id = c.id;
+
+
+
+
+
+

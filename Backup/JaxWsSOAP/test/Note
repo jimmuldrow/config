@@ -1,0 +1,6 @@
+
+http://localhost:8080/test/customerService
+
+http://localhost:8080/test/customerService?wsdl
+
+wsimport -keep -verbose http://localhost:8080/test/customerService?wsdl

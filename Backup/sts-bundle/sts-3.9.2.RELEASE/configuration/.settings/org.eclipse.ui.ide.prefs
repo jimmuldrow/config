@@ -1,0 +1,6 @@
+MAX_RECENT_WORKSPACES=10
+RECENT_WORKSPACES=C\:\\a1\\Projects\\Other-Workspaces\\test-kafka\nC\:\\a1\\Projects\\Other-Workspaces\\annot-test\nC\:\\a1\\Projects\\Other-Workspaces\\Gradle-Test\nC\:\\a1\\Projects\\Other-Workspaces\\test\nC\:\\a1\\Projects\\Other-Workspaces\\Cassandra-Test\nC\:\\a1\\Projects\\Other-Workspaces\\pre-construct-demo\nC\:\\a1\\Projects\\BNSF-Workspaces\\ct-contingency-bff\nC\:\\a1\\Projects\\Other-Workspaces\\testTwo\nC\:\\a1\\STS\\Workspaces\\test
+RECENT_WORKSPACES_PROTOCOL=3
+SHOW_RECENT_WORKSPACES=false
+SHOW_WORKSPACE_SELECTION_DIALOG=true
+eclipse.preferences.version=1

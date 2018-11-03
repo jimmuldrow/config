@@ -1,0 +1,27 @@
+
+
+
+https://prod.beeline.com/contractordepot
+	Your User Name is: JamMuldrow0622
+	Your Password is: Cummings1!
+
+
+Respond to: Kristin McGann *********
+kristin.mcgann@infosys.com
+626-806-9270
+
+
+https://github.com/jimmuldrow/config
+
+
+cd c:/a1/GIT
+
+git clone https://github.com/jimmuldrow/config c:/a1/GIT
+
+(make changes here)
+
+cd c:/a1/GIT/config
+
+git add .
+git commit -m "add changes"
+git push https://github.com/jimmuldrow/config master

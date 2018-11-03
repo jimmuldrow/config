@@ -1,0 +1,25 @@
+
+https://github.com/eugenp/tutorials/tree/master/spring-kafka
+
+
+The following four topics need to be created:
+
+cd C:\a1\Kafka\kafka_2.12-1.0.0\bin\windows
+kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic baeldung
+kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 5 --topic partitioned
+kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic filtered
+kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic greeting
+
+
+Received Messasge in group 'foo': Hello, World!
+Received Messasge: Hello, World! from partition: 0
+Received Messasge in group 'bar': Hello, World!
+Exception in thread "main" org.apache.kafka.common.KafkaException: Invalid partition given with record: 1 is not in the range [0...1).
+	at org.apache.kafka.clients.producer.KafkaProducer.waitOnMetadata(KafkaProducer.java:560)
+	at org.apache.kafka.clients.producer.KafkaProducer.doSend(KafkaProducer.java:446)
+	at org.apache.kafka.clients.producer.KafkaProducer.send(KafkaProducer.java:436)
+	at org.springframework.kafka.core.DefaultKafkaProducerFactory$CloseSafeProducer.send(DefaultKafkaProducerFactory.java:156)
+	at org.springframework.kafka.core.KafkaTemplate.doSend(KafkaTemplate.java:241)
+	at org.springframework.kafka.core.KafkaTemplate.send(KafkaTemplate.java:163)
+	at com.test.KafkaApplication$MessageProducer.sendMessageToPartion(KafkaApplication.java:105)
+	at com.test.KafkaApplication.main(KafkaApplication.java:46)

@@ -1,0 +1,12 @@
+
+
+
+http://javasampleapproach.com/spring-framework/spring-data/start-spring-data-cassandra-springboot
+
+
+cd C:\Program Files\DataStax-DDC\apache-cassandra\bin
+cassandra.bat
+
+then startCQL Shell
+
+
