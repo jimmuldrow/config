@@ -22,14 +22,42 @@ public class Test {
 	}	
 
 	Test(){
-		//getForEntity();
-		//getForObject();		
-		//postForObject();
-		//postForLocation();
-		//put();
-		//delete();
-		//patchObject();
-		patchString();
+		// Setting the index controls which resttemplate method gets called.
+		int index = 0;
+		
+		switch(index) {
+		case 1: 
+			getForEntity();
+			break;
+			
+		case 2: 	
+			getForObject();
+			break;
+			
+		case 3:
+			postForObject();
+			break;
+		
+		case 4:
+			postForLocation();
+			break;
+			
+		case 5:
+			put();
+			break;
+			
+		case 6:
+			delete();
+			break;
+			
+		case 7:
+			patchObject();
+			break;
+			
+		case 8:
+			patchString();
+		}
+		
 		System.out.println("*** End");
 	}
 	
@@ -37,8 +65,8 @@ public class Test {
 		RestTemplate restTemplate = getRestTemplate();
 		String uri = "http://localhost:8080/getItem";
 		ResponseEntity<Item> response = restTemplate.getForEntity(uri + "/1", Item.class);	
-		Item item = response.getBody();
-		System.out.println("*** getForEntity item = " + item);
+		Item item = response.getBody();		
+		System.out.println("*** getForEntity item = " + item + "  status code = " + response.getStatusCode());
 	}
 	
 	void getForObject() {
@@ -76,9 +104,9 @@ public class Test {
             Item item = new Item();
             item.setName("frisbee");
             item.setPrice(12.0);
-            item.setBrand("Whamo");
-            URI location = rt.postForLocation(uri, item, vars);
-            System.out.println("URL = " + location);
+            item.setBrand("Whamo");            
+            rt.postForLocation(uri, item, vars);
+            System.out.println("postForLocation");
         }
         catch(Exception e){
             System.out.println("error:  " + e.getMessage());
@@ -125,7 +153,7 @@ public class Test {
             item.setName("frisbee");
             item.setPrice(4.0);
             item.setBrand("Whamo");
-            rt.exchange(uri, HttpMethod.PATCH, getPostRequestHeaders(item), Void.class);
+            rt.exchange(uri, HttpMethod.PATCH, getRequestHeaders(item), Void.class);
         }
         catch(Exception e){
             System.out.println("error:  " + e.getMessage());
@@ -140,7 +168,7 @@ public class Test {
             jsonObject.put("name", "frisbee");
             jsonObject.put("price", "8.00");
             jsonObject.put("brand",  "Whamo");
-            rt.exchange(uri, HttpMethod.PATCH, getPostRequestHeaders(jsonObject.toString()), Void.class);
+            rt.exchange(uri, HttpMethod.PATCH, getRequestHeaders(jsonObject.toString()), Void.class);
         }
         catch(Exception e){
             System.out.println("error:  " + e.getMessage());
@@ -154,7 +182,7 @@ public class Test {
         return rt;
 	}
 	
-    public HttpEntity<Object> getPostRequestHeaders(Object jsonPostBody) {
+    public HttpEntity<Object> getRequestHeaders(Object jsonPostBody) {
         List<MediaType> acceptTypes = new ArrayList<MediaType>();
         acceptTypes.add(MediaType.APPLICATION_JSON_UTF8);
         HttpHeaders reqHeaders = new HttpHeaders();
