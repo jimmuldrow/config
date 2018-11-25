@@ -182,12 +182,12 @@ public class Test {
         return rt;
 	}
 	
-    public HttpEntity<Object> getRequestHeaders(Object jsonPostBody) {
+    public HttpEntity<Object> getRequestHeaders(Object body) {
         List<MediaType> acceptTypes = new ArrayList<MediaType>();
         acceptTypes.add(MediaType.APPLICATION_JSON_UTF8);
         HttpHeaders reqHeaders = new HttpHeaders();
         reqHeaders.setContentType(MediaType.APPLICATION_JSON_UTF8);
         reqHeaders.setAccept(acceptTypes);
-        return new HttpEntity<Object>(jsonPostBody, reqHeaders);
+        return new HttpEntity<Object>(body, reqHeaders);
     }	
 }
