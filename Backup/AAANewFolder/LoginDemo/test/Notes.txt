@@ -1,0 +1,14 @@
+
+
+
+
+user
+	id
+	login_id
+	pass
+	roletype
+
+
+
+ALTER TABLE user ADD CONSTRAINT unique_user UNIQUE (login_id (50));
+

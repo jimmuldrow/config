@@ -1,0 +1,1255 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Introduction to Java</title>
+    <meta charset=UTF-8" />
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <style>
+		.header{font-size: 30px; color: #777777;}		
+		a:link {
+			text-decoration: none;
+			color: #0000ff;
+		}
+		
+		a:visited {
+			color: #0000ff;
+		}
+
+		a:hover {
+			color: #0000ff;
+		}
+
+		a:active {
+			color: #0000ff;
+		}
+		
+		#note{font-size: 18px;}		
+		
+		#moreInfo{
+			line-height: 1.2;
+			font-size: 20px;
+		}
+		
+		#footer{
+			font-style: italic;
+			line-height: 1.0;
+			font-size: 18px;
+		}
+		
+		.mainHeading{
+			font-size: 50px; 
+			color: #00aa00; 
+		}
+
+		body{
+			font-family: Arial, Helvetica, sans-serif;
+			padding-left: 400px;
+			padding-right: 400px;
+			padding-top: 100px;
+			font-size: 19px;
+			line-height: 1.5;
+		}
+		
+		.scrollabletextbox {
+			font-size: 82%;
+			overflow:scroll;
+		}
+		
+		#scrollPom {
+			height:600px;
+			width:900px;		
+		}
+		
+		#scrollHello {
+			height:180px;
+			width:500px;		
+		}
+		
+		#scrollIfElse {
+			height:300px;
+			width:700px;		
+		}		
+		
+		#scrollLoops {
+			height:530px;
+			width:700px;		
+		}	
+
+		#scrollSubstring {
+			height:400px;
+			width:1000px;		
+		}	
+
+		#scrollSwitch {
+			height:500px;
+			width:750px;		
+		}				
+		
+		#scrollKent {
+			height:480px;
+			width:500px;		
+		}	
+
+		#scrollBuilder {
+			height:240px;
+			width:500px;		
+		}		
+		
+		#scrollArrays {
+			height:320px;
+			width:500px;		
+		}	
+
+		#scrollClassPoly {
+			height:600px;
+			width:600px;		
+		}			
+
+		#scrollInterfacePoly {
+			height:600px;
+			width:600px;		
+		}		
+		
+		#scrollBigDecimal {
+			height:600px;
+			width:1000px;		
+		}				
+
+		#scrollSortMap {
+			height:500px;
+			width:750px;		
+		}
+		
+	</style>
+ </head>
+<body>
+
+<div class="mainHeading">Introduction to Java</div><br>
+
+<div class="header">Java</div>
+<p>
+Java was created by the Sun Company, which was later bought by Oracle. Sun introduced Java garbage collection, which occurs 
+automatically so that there is no risk of human error. Before, languages like C required programmers to do their own garbage 
+collection. Errors in garbage collection lead to memory leaks. Java also removed explicit C style pointers, which, if not used 
+carefully, were another source of  memory leaks.
+</p>
+
+<p>
+Java is also famous for being "write once, run anywhere". The same Java byte code can run on different operating systems, as each
+operating system is responsible for creating its own Java Virtual Machine, which interprets the Java byte code for a specific 
+operating system. 
+</p>
+
+<div class="header">Initial Setup</div>
+
+<p>
+It's easier to use Java with an IDE, so first download the latest version of Spring Tool Suites (STS) to get started.
+You'll also need Java on your system, so download that as well. Just do a Google search on "oracle java jdk", since you'll 
+want the JDK, not the JRE. If you use the defaults for Windows Java will be in something like C:\Program Files\jdk-1.8\bin\javaw.exe. 
+The exact value will depend on which version of Java you download. It's better to use versions from Java 1.8 and up at this point in time.
+Please note that all related downloads must match your system. If you mix 32 bit and 64 bit software, problems happen. The safe 
+way is to go to Control Panel -> System and then get software that matches your system type. If your system is 64 bit, make sure
+that all your downloads are 64 bit, and so on.
+</p>
+<p>
+After that, use the Windows Control Panel -> System -> Advanced system settings -> Environment Variables to add  JAVA_HOME
+along with something like (depending on which version of Java you installed) "C:\Program Files\java\jdk-1.8" to User variables. 
+Then for the path variable add %JAVA_HOME%\bin; to the end of the path. 
+</p>
+<p>
+Java must be installed before you can use the IDE. After this is done, create a workspace for storing projects. So create 
+a folder called "workspace" and then create a folder under workspace called "test". Then click on STS.exe to start the IDE.
+To make it easy to use STS, create a shortcut to it on your Windows desktop.
+</p>
+
+<p>
+STS will ask you to select a workspace. Select c:\workspace\test and continue.
+</p>
+
+<p>
+To see if STS is pointing to the right version of Java on your system, click on Windows -> Preferences -> Java -> installed JREs 
+and see if your intended version of Java is there. If not, click on Add and add it.
+</p>
+
+<p>
+When STS opens, go to the left side and right click and then select Maven Project from the drop down. Then select the 
+"Create a simple project (skip archetype selection)" option and click on "Next". Then choose a name for the group id and 
+artifact id. For now just use "test" for these. Then click "Finish". You will then see a new Maven project with a POM file. 
+This file has dependencies and other information needed to set up your project.
+
+First go to c:\workspace\test\test\.settings\org.eclipse.jdt.cor.prefs and update from Java 1.5 to your current version of 
+Java.
+
+If there are still error messages, right click on your project, select Properties at the bottom, and select Java Build Path -> Libraries.
+Then select JRE System Library and click the Edit button. Then select the Workspace default JRE radio button and click on Finish 
+and then on Apply and Close.
+
+Then replace the current code in pom.xml with the following:
+</p>
+
+<p>
+<a href="#" id="open1">Open</a>&nbsp;&nbsp;&nbsp;<a href="#" id="close1">Close</a>
+<textarea class="scrollabletextbox" id="scrollPom">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.springframework</groupId>
+	<artifactId>accounts</artifactId>
+	<version>0.1.0</version>
+
+	<parent>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-parent</artifactId>
+		<version>Brixton.RELEASE</version>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20180813</version>
+		</dependency>
+		<dependency>
+			<groupId>org.yaml</groupId>
+			<artifactId>snakeyaml</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<!-- Spring Cloud starter -->
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+		<finalName>accounts</finalName>
+	</build>
+
+	<repositories>
+		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>central</id>
+			<name>libs-release</name>
+			<url>http://repo.springsource.org/libs-release</url>
+		</repository>
+		<repository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+</project>
+</textarea>
+</p>
+
+<p>
+The above pom specifies java 1.8, although this will need to be updated as newer versions of Java come out.
+The pom has dependencies that will be useful for more advanced applications as well as simple ones. We'll use 
+those later. For now, right click on your project, then select Maven -> Update Project and click OK.
+</p>
+
+<div class="header">First Project</div>
+
+<p>
+Now, on the left side, right click on src/main/java and select New -> Package and enter com.test for the name. Then
+click Finish. Then right click on the new com.test package and select New -> Class. Enter Test for the Name and click
+Finish. Then open the new Test Java class and enter the following code to create your first Java class, the classic
+Hello World application, as follows:
+</p>
+
+<p>
+<a href="#" id="open2">Open</a>&nbsp;&nbsp;&nbsp;<a href="#" id="close2">Close</a><br>
+<textarea class="scrollabletextbox" id="scrollHello">
+package com.test;
+
+public class Test {
+	public static void main(String[] args) {
+		System.out.println("Hello World!");
+	}
+}
+</textarea>
+</p>
+
+<p>
+When you right click on the Java class Test and select Run As -> Java Application the classic message "Hello World!" 
+should appear in the console at the bottom. You've successfully created your first Java class.
+</p>
+
+<div class="header">Java Basics</div>
+
+<p>
+A basic if else statement is as follows:
+</p>
+
+<p>
+<a href="#" id="open2_4">Open</a>&nbsp;&nbsp;&nbsp;<a href="#" id="close2_4">Close</a><br>
+<textarea class="scrollabletextbox" id="scrollIfElse">
+package com.test;
+
+public class IfElseDemo {
+	public static void main(String[] args) {
+		boolean b = false;
+		
+		if(b == true) {
+			System.out.println("condition is true");
+		}
+		else {
+			System.out.println("condition is false");
+		}
+	}
+}
+</textarea>
+</p>
+
+<p>
+Basic Java operators for comparison are:<br>
+== &nbsp; checks to see if both sides have the same value.<br>
+!= &nbsp; checks for an unequal condition.<br>
+! &nbsp; checks for a condition being false.<br>
+&gt;= &nbsp; checks to see if the left side is greater than or equal to the right side.<br>
+&lt;= &nbsp; checks to see if the left side is less than or equal to the right side.<br><br>
+The above are normally used with if statements.<br><br>
+There are three ways to check for an equals condition:<br>
+== &nbsp; checks to see if two numbers have the same value.<br>
+= &nbsp; assigns the value from right to left.<br>
+stringValue1.equals(stringValue2) &nbsp; checks to see if Strings have the same value.<br>
+</p>
+
+<p>
+The following shows how for, while and do while loops work:
+</p>
+
+<p>
+<a href="#" id="open2_5">Open</a>&nbsp;&nbsp;&nbsp;<a href="#" id="close2_5">Close</a><br>
+<textarea class="scrollabletextbox" id="scrollLoops">
+package com.test;
+
+public class LoopTests {
+	public static void main(String[] args) {
+		for(int i = 0; i < 3; i++) {
+			System.out.println("for loop index = " + i);
+		}
+		
+		int a = 3;
+		
+		while(a > 0) {
+			System.out.println("while loop index = " + a);
+			a--;
+		}
+		
+		int b = 3;
+		
+		do {
+			System.out.println("do while  loop index = " + b);
+			b--;
+		}
+		while(b > 0);
+	}
+}
+</textarea>
+</p>
+
+<p>
+The following shows how the String class substring method works:
+</p>
+
+<p>
+<a href="#" id="open2_6">Open</a>&nbsp;&nbsp;&nbsp;<a href="#" id="close2_6">Close</a><br>
+<textarea class="scrollabletextbox" id="scrollSubstring">
+package com.test;
+
+public class SubstringTest {
+	public static void main(String[] args) {
+		// The first (start) parameter starts at position zero. 
+		// The second (end) parameter starts at position one. 
+		String s = "abcdefghij";
+		String s1 = s.substring(0,  5);
+		System.out.println("s1 = " + s1);
+		String s2 = s.substring(2,  6);
+		System.out.println("s2 = " + s2);		
+		String s3 = s.substring(5,  10);
+		System.out.println("s3 = " + s3);	
+		
+		// If the second parameter is omitted, the result is from the first parameter position to the end
+		String s4 = s.substring(0);
+		System.out.println("s4 = " + s4);		
+	}
+}
+</textarea>
+</p>
+
+<p>
+The following shows how a switch statement works:
+</p>
+
+<p>
+<a href="#" id="open2_7">Open</a>&nbsp;&nbsp;&nbsp;<a href="#" id="close2_7">Close</a><br>
+<textarea class="scrollabletextbox" id="scrollSwitch">
+package com.test;
+
+public class SwitchDemo {
+	
+	public static void main(String[] args) {
+		/*
+		 * Switch statements can now use Strings as well as numbers
+		 */
+		
+		String value = "abc";
+		
+		switch(value){
+			case "def": 
+				System.out.println("value = def");
+				break;
+			case "abc": 
+				System.out.println("value = abc");
+				break;			
+			case "xyz": 
+				System.out.println("value = xyz");
+				break;		
+			default:
+				System.out.println("This is the default");
+		}
+	}
+}
+
+</textarea>
+</p>
+
+<div class="header">Java Parameters</div>
+<p>
+The parameters of a Java method are always passed by value, not by reference. This means that copies of the objects and primitives are 
+passed to methods. The original value isn't changed unless the method changes the copy of an object and then does a this.object = object
+at the end, substituting whatever the object name is for "object".
+</p>
+<p>
+Java objects are created on the heap, with the String Pool being a specialized part of the heap. Method parameters are created on the stack.
+An object parameter is really a reference or address of an object on the heap. So everything on the stack is really a number, either a primitive
+or an address of a heap object.
+</p>
+<div class="header">Java Modifiers</div>
+
+<p>
+The static modifier defines values and methods as belonging to the class level, not the object level. While you can make many 
+objects of a class, anything that is static is the same for all objects of that class, because they are not part of the objects.
+Object oriented programming therefore doesn't apply to anything static.
+</p>
+
+<p>
+The volatile modifier is used to resolve some multi-threading problems. Values normally come from a cache. However, if many threads
+try to change the same value, the cached value might not be accurate. So volatile brings the value directly, not from the cache, in such 
+situations.
+</p>
+
+<p>
+The transient modifier is used to prevent some values from being included in object serialization. Serialization stores objects as serialized 
+byte files that can later be restored as objects. But if sensitive data, such as SSNs, are to be excluded from serialization, the transient 
+modifier is used.
+</p>
+
+<p>
+The final modifier means that a thing can't be changed. A final class can't be extended, a final value can't be changed, and a final method
+can't be overridden. 
+</p>
+
+<div class="header">Java Primitive Types</div>
+<p>
+Even though Java is mostly object oriented, it has both primitives and objects. The eight primitives in Java are:
+<ul>
+<li>boolean - either true or false, default is false</li>
+<li>byte - length is one byte or eight bits</li>
+<li>char - 16 bits, allows unicode and multiple language formats</li>
+<li>short - 16 bits</li>
+<li>int - 32 bits</li>
+<li>long - 64 bits</li>
+<li>float - 32 bits</li>
+<li>double - 64 bits</li>
+</ul>
+
+All of these primitives have corresponding wrapper classes so that they can be used where objects are required.
+Wrapper object classes that wrap primitives are:
+<ul>
+<li>Boolean</li>
+<li>Byte</li>
+<li>Character</li>
+<li>Short</li>
+<li>Integer</li>
+<li>Long</li>
+<li>Float</li>
+<li>Double</li>
+</ul>
+</p>
+<p>
+short, int and long are for integers, float and double are for floating point numbers. They allow positive and negative numbers.
+As of Java 1.5 autoboxing can be used to automatically convert between primitive values and wrapper objects as needed. Primitives 
+aren't accurate enough to be used for monetary calculations, so the Java BigDecimal object is used for these.
+</p>
+
+<p>
+Wrapper classes can parse Strings with numbers into corresponding primitive types. For example, the following parses a numeric String 
+to a double: double d = Double.parseDouble("123.45");
+</p>
+<div class="header">Java Objects</div>
+<p>
+Every Java object is a sub class of the super class Object. Therefore, every Java object has the Object class methods. These include 
+hashCode and equals, which uniquely identify an object. If one of these is overridden with a custom implementation, the other must 
+get the same custom treatment. The reason for custom implementations of these methods is mainly for using them as keys to maps, for reasons 
+that will be described later.
+</p>
+
+<p>
+The Object object has the method toString, which allows any object to be printed out with all the values by overriding this method.
+It also has the methods clone, getClass, finalize, wait, notify and notifyAll;
+</p>
+
+<p>
+Java objects allow public, private, protected and default access to object values, methods and constructors. Public access allows access from 
+anywhere in a given project. Protected status allows access from classes in the same package plus access for any sub classes in other packages.
+Private access denies access to other classes. Default access allows access to other classes within the same package, but not to sub classes 
+in other packages.
+</p>
+
+<p>
+Most of Java uses objects, not primitives. Most objects of a class are created through a constructor. Any class that lacks a written
+constructor has a default no arguments constructor. So if the class Foo has no written constructor, it can still be called with: 
+Foo foo = new Foo(); If the class has a public constructor with arguments, an object can be created with: Foo foo = new Foo(value1, value2, ...);
+These values can be used to set fields in the object to specific values when the object is created. The object created by calling new can 
+be referred to through the reserved word "this". The following shows how using Foo foo = new Foo("Clark", "Kent"); can create a new object of the 
+Foo class with the first name of "Clark" and the last name of "Kent":
+</p>
+
+<p>
+<p>
+<a href="#" id="open3">Open</a>&nbsp;&nbsp;&nbsp;<a href="#" id="close3">Close</a><br>
+<textarea class="scrollabletextbox" id="scrollKent">
+package com.test;
+
+public class Foo {
+	private String first;
+	private String last;	
+	
+	public Foo(String first, String last) {
+		this.first = first;
+		this.last = last;
+	}	
+	
+	public String getFirst() {
+		return first;
+	}
+	public void setFirst(String first) {
+		this.first = first;
+	}
+	public String getLast() {
+		return last;
+	}
+	public void setLast(String last) {
+		this.last = last;
+	}
+}
+</textarea>
+</p>
+
+<p>
+Please note that using private values and public getters and setters is the widely popular bean pattern.
+So the constructor in the above class uses the reserved word "this" to assign parameter values to object values.
+The object, following the bean pattern, then has private access for the values and public access for the getters
+and setters, which allows these getters and setters to control and edit access to values as needed.
+</p>
+
+<p>
+The Java String class gets lots of special handling because of its importance. The String Pool allows String objects 
+to be created without using the "new" reserved word, and without explicitly calling a constructor. A String object 
+can be created as easily as: String abc = "def"; Almost all Java Strings are created this way. The String pool manages 
+these Strings. For example, if two Strings have the same value, they are different names for the same object, in order 
+to be efficient.
+</p>
+
+<p>
+Strings are immutable. While it looks like abc = "some new value"; changes a String, it really replaces the old 
+String with a new String. So the efficient way to change a String value is by using StringBuffer or StringBuilder. Since
+StringBuilder is more up to date, the following shows an efficient way to change a String value using StringBuilder:
+</p>
+
+<p>
+<a href="#" id="open4">Open</a>&nbsp;&nbsp;&nbsp;<a href="#" id="close4">Close</a><br>
+<textarea class="scrollabletextbox" id="scrollBuilder">
+package com.test;
+
+public class StringBuilderDemo {
+	public static void main(String[] args) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("abc");
+		sb.append("def");
+		sb.append("ghi");
+		String s = sb.toString();
+		System.out.println(s);
+	}
+}
+</textarea>
+</p>
+
+<p>
+Arrays are full fledged objects in Java. The Arrays utility has methods useful for dealing with arrays, 
+including asList, sort, binarySearch, compare, fill and so on.  The way to create an array is as follows:
+</p>
+
+<p>
+<a href="#" id="open5">Open</a>&nbsp;&nbsp;&nbsp;<a href="#" id="close5">Close</a><br>
+<textarea class="scrollabletextbox" id="scrollArrays">
+package com.test;
+
+public class ArrayDemo {
+	public static void main(String[] args) {
+		String[] s = {"abc", "def", "ghi"};
+		int[] i = {1, 2, 3, 4};
+		
+		for(String s1: s) {
+			System.out.println(s1);
+		}
+		
+		for (int i1: i) {
+			System.out.println(i1);
+		}
+	}
+}
+</textarea>
+</p>
+<div class="header">Object Oriented Programming (OOP)</div>
+<p>
+Object oriented programming officially includes encapsulation, inheritance and polymorphism. Don't let these 
+phrases scare you, they really aren't that difficult, and are very powerful. 
+</p>
+
+<p>
+You already know what encapsulation is. It's the bean pattern mentioned before, although with a more grandiloquent name.
+Inheritance means that a sub class can inherit from a super class. Polymorphism means that sub classes can implement inherited
+methods in different ways, regardless of whether the inherited method comes from a super class or an interface. We'll explain 
+interfaces shortly. Just remember for now that a sub class includes everything that has public or protected access in the super class,
+or default access if the sub class is in the same package as the super  class. Sub classes can also include unique code in the sub class, 
+and inherited methods can be overridden. Overriding means that a sub class creates it's own version of a method inherited from the 
+super class with the same method name, return type and parameters but with a different implementation of that method.
+</p>
+
+<p>
+The following shows inheritance and polymorphism using a super class and sub classes of the super class:
+</p>
+<p>
+<a href="#" id="open6">Open</a>&nbsp;&nbsp;&nbsp;<a href="#" id="close6">Close</a><br>
+<textarea class="scrollabletextbox" id="scrollClassPoly">
+package com.test;
+
+public class Animal {
+	private String name;
+	private String sound;
+	private String move;	
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getSound() {
+		return sound;
+	}
+	public void setSound(String sound) {
+		this.sound = sound;
+	}
+	public String getMove() {
+		return move;
+	}
+	public void setMove(String move) {
+		this.move = move;
+	}
+	
+	public String describeAnimal() {
+		return "some animal";
+	}
+}
+
+package com.test;
+
+public class Dog extends Animal{
+	public Dog() {
+		setName("Rover");
+		setSound("bark");
+		setMove("tail wag");
+	}	
+	
+	public String describeAnimal() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Dog name: ");
+		sb.append(getName());
+		sb.append("   Dog sound: ");
+		sb.append(getSound());
+		sb.append("   Dog move: ");
+		sb.append(getMove());
+		return sb.toString();
+	}		
+}
+
+package com.test;
+
+public class Cat extends Animal {
+	public Cat() {
+		setName("Morris");
+		setSound("meow");
+		setMove("slink");
+	}
+	
+	public String describeAnimal() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Cat name: ");
+		sb.append(getName());
+		sb.append("   Cat sound: ");
+		sb.append(getSound());
+		sb.append("   Cat move: ");
+		sb.append(getMove());
+		return sb.toString();
+	}		
+}
+
+package com.test;
+
+public class TestClassInheritance {
+	public static void main(String[] args) {
+		new TestClassInheritance();
+	}
+	
+	TestClassInheritance(){
+		Dog dog = new Dog();
+		System.out.println(dog.describeAnimal());
+		Cat cat = new Cat();
+		System.out.println(cat.describeAnimal());
+	}
+}
+</textarea>
+</p>
+
+<p>
+The following shows similar inheritance through an interface:
+</p>
+
+<p>
+<a href="#" id="open7">Open</a>&nbsp;&nbsp;&nbsp;<a href="#" id="close7">Close</a><br>
+
+<textarea class="scrollabletextbox" id="scrollInterfacePoly">
+package com.test;
+
+public interface AnimalInterface {
+	public String getName();
+	public void setName(String name);
+	public String getSound();
+	public void setSound(String sound);
+	public String getMove();
+	public void setMove(String move);
+	public String describeAnimal();
+}
+
+package com.test;
+
+public class Cat implements AnimalInterface {
+	public Cat() {
+		setName("Morris");
+		setSound("meow");
+		setMove("slink");
+	}
+	
+	public String describeAnimal() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Cat name: ");
+		sb.append(getName());
+		sb.append("   Cat sound: ");
+		sb.append(getSound());
+		sb.append("   Cat move: ");
+		sb.append(getMove());
+		return sb.toString();
+	}	
+	
+	private String name;
+	private String sound;
+	private String move;	
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getSound() {
+		return sound;
+	}
+	public void setSound(String sound) {
+		this.sound = sound;
+	}
+	public String getMove() {
+		return move;
+	}
+	public void setMove(String move) {
+		this.move = move;
+	}
+}
+
+package com.test;
+
+public class Dog implements AnimalInterface {
+	public Dog() {
+		setName("Rover");
+		setSound("bark");
+		setMove("tail wag");
+	}	
+	
+	public String describeAnimal() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Dog name: ");
+		sb.append(getName());
+		sb.append("   Dog sound: ");
+		sb.append(getSound());
+		sb.append("   Dog move: ");
+		sb.append(getMove());
+		return sb.toString();
+	}	
+	
+	private String name;
+	private String sound;
+	private String move;	
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getSound() {
+		return sound;
+	}
+	public void setSound(String sound) {
+		this.sound = sound;
+	}
+	public String getMove() {
+		return move;
+	}
+	public void setMove(String move) {
+		this.move = move;
+	}
+}
+
+package com.test;
+
+public class TestClassInheritance {
+	public static void main(String[] args) {
+		new TestClassInheritance();
+	}
+	
+	TestClassInheritance(){
+		Dog dog = new Dog();
+		System.out.println(dog.describeAnimal());
+		Cat cat = new Cat();
+		System.out.println(cat.describeAnimal());
+	}
+}
+</textarea>
+</p>
+<div class="header">Interfaces</div>
+<p>
+While a Java class can extend from only one superclass, it can implement from zero to many interfaces. The values in 
+interfaces are public static default. The qualifiers public, static and default don't need to be used, since all interface 
+values fit that description. In the past, all interface methods were abstract in that they weren't implemented with any specific 
+functionality, as shown in the above example of using inheritance through an interface. As of Java 1.8, default interface methods 
+are not abstract. Also as of Java 1.8, an interface with exactly one abstract method is a "functional interface", which means it 
+can be used with lambdas. We'll get to Java 1.8 issues later. For now, we'll just use abstract methods with interfaces.
+</p>
+<p>
+For many years all interface methods were abstract to get around a "diamond" problem. If a class can inherit the same fully 
+implemented method from more than one class, the people at Sun (the company that invented Java) didn't want to arbitrarily 
+select from one side or the other, which is why a Java class can extend only one super class at a time. Even though interfaces
+can now have fully implemented methods, and multiple interfaces can be implemented by a single Java class, inherited methods 
+that have the same name, signature and return type are treated as abstract, so there is still no "diamond" issue.
+</p>
+
+<div class="header">Overriding vs Overloading</div>
+<p>
+Overriding applies to an inheritance situation between a sub class and a super class. Overloading applies to methods in the 
+same class. If the same class has methods with the same name but different parameters, they are overloaded methods. 
+</p>
+
+<div class="header">Abstract Classes</div>
+<p>
+An abstract class can have from zero to many abstract methods. It can have no abstract methods. The only guarantee is that an abstract 
+class has to be extended before it can be used. This makes it useful as a helper class that provides utility that several other classes
+need. A class can be defined as abstract by simple using the abstract reserved word when creating the class, as in, public abstract class MyClass ...
+</p>
+
+<div class="header">BigDecimal</div>
+<p>
+As mentioned previously, primitives are too inexact for financial calculations. Also, financial calculations should be rounded to the penny 
+and displayed in the format that matches the locale. The following shows how to do this using Java's BigDecimal utility:
+</p>
+
+<p>
+<a href="#" id="open7_5">Open</a>&nbsp;&nbsp;&nbsp;<a href="#" id="close7_5">Close</a><br>
+<textarea class="scrollabletextbox" id="scrollBigDecimal">
+package com.test;
+import java.text.NumberFormat;
+import java.text.Format;
+import java.util.Locale;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.math.MathContext;
+
+public class BigDecimalDemo {
+	
+	public static void main(String[] args) {
+		new BigDecimalDemo();
+	}
+	
+	BigDecimalDemo(){
+		BigDecimal result = addBd("147.856", "-47.855");
+		printResult(result);
+		
+		result = subtractBd(result.toString(), "31.17");
+		printResult(result);		
+		
+		result = multiplyBd(result.toString(), "3");
+		printResult(result);	
+		
+		result = divideBd(result.toString(), "2.12");
+		printResult(result);			
+
+		String dollarAmt = formatUSCurrency(result.toString());
+		System.out.println("final result in dollars = " + dollarAmt);
+	}
+	
+	void printResult(BigDecimal result){
+		if(result != null) {
+			System.out.println(result.toString());
+		}
+		else {
+			System.out.println("ERROR");
+		}		
+	}
+	
+	public BigDecimal addBd(String val1, String val2) {		
+		if((isValueNumeric(val1)) || (isValueNumeric(val2))) {
+			BigDecimal bd1 = new BigDecimal(val1);
+			BigDecimal bd2 = bd1.add(new BigDecimal(val2));
+			return bd2;			
+		}
+		else {
+			return null;
+		}
+	}	
+	
+	public BigDecimal subtractBd(String val1, String val2) {		
+		if((isValueNumeric(val1)) || (isValueNumeric(val2))) {
+			BigDecimal bd1 = new BigDecimal(val1);
+			BigDecimal bd2 = bd1.subtract(new BigDecimal(val2));
+			return bd2;			
+		}
+		else {
+			return null;
+		}
+	}		
+	
+	public BigDecimal multiplyBd(String val1, String val2) {		
+		if((isValueNumeric(val1)) || (isValueNumeric(val2))) {
+			BigDecimal bd1 = new BigDecimal(val1);
+			BigDecimal bd2 = bd1.multiply(new BigDecimal(val2));
+			return bd2;			
+		}
+		else {
+			return null;
+		}
+	}		
+	
+	public BigDecimal divideBd(String val1, String val2) {		
+		if((isValueNumeric(val1)) || (isValueNumeric(val2))) {
+			BigDecimal bd1 = new BigDecimal(val1);
+			MathContext mc = new MathContext(1000, RoundingMode.HALF_UP);
+			BigDecimal bd2 = bd1.divide(new BigDecimal(val2), mc);
+			return bd2;			
+		}
+		else {
+			return null;
+		}
+	}			
+	
+	public String formatUSCurrency(String s) {
+		return formatCurrency(s, Locale.US, RoundingMode.HALF_UP);
+	}
+	
+	public String formatCurrency(String s, Locale locale, RoundingMode roundingMode) {
+		s = s.replace(",", "");
+
+		if ((s.matches("(\\d){1,}")) || (s.matches("(\\d){1,}\\.(\\d){1,}"))) {
+			BigDecimal bd1 = new BigDecimal(s);
+			BigDecimal bd2 = bd1.setScale(2, roundingMode);
+			double d = Double.parseDouble(bd2.toString());
+			Format format = NumberFormat.getCurrencyInstance(locale);
+			return format.format(d);
+		}
+
+		return "$0.00";
+	}
+	
+	public boolean isValueNumeric(String s) {
+		if((s.matches("[+|-]?(\\d)+")) || (s.matches("[+|-]?(\\d)+\\.(\\d)+"))) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+}
+
+</textarea>
+</p>
+
+<div class="header">Collections</div>
+<p>
+Java collections include various types of maps, lists and sets. Maps use key / value pairs to store and retrieve data. The keys 
+must be unique, although the values attached to keys can duplicate. Lists are collections that simply add objects to a list, regardless 
+of whether they are duplicates. The difference between lists and arrays is that lists are dynamic, whereas arrays can't be changed.
+Sets allow no duplicates. 
+</p>
+<p>
+Maps include HashMap, LinkedHashMap and TreeMap. Each of these use a unique hash key (a hash being a one way encryption) to retrieve a value. 
+HashMaps are not in any definite order, whereas TreeMaps are always in order by key. This ordering requires extra overhead, so 
+it should only be used where needed. A LinkedHashMap stores values in the order by which the keys are inserted. The following shows how to 
+use Java 8 to sort a map:
+</p>
+
+<p>
+<a href="#" id="open8">Open</a>&nbsp;&nbsp;&nbsp;<a href="#" id="close8">Close</a><br>
+<textarea class="scrollabletextbox" id="scrollSortMap">
+import java.util.LinkedHashMap;
+
+
+public class LambdaMapSort {
+	public static void main(String[] args) {
+        Map<String, Integer> unsortMap = new HashMap<>();
+        unsortMap.put("z", 10);
+        unsortMap.put("y", 8);
+        unsortMap.put("n", 99);
+        unsortMap.put("m", 2);
+
+
+        System.out.println("Unsorted Map");
+        System.out.println(unsortMap);
+
+        Map<String, Integer> result = unsortMap.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                        (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+
+        System.out.println("Sorted Map");
+        System.out.println(result);
+	}
+}
+</textarea>
+</p>
+
+<p>
+The above combines Java 1.5 generics with Java 1.8 stream class methods and lambdas. Generics 
+in this example are the &lt;String, Integer&gt; that tell Java that the key is a String and the value is an integer.
+Auto boxing and unboxing automatically wrap int primitives into Integer wrapper objects and unwrap them again, so no 
+casting is needed. Lambdas are those things with an -&gt; that save keystrokes. Streams add new functionality to Java
+Collections.
+</p>
+
+
+<script>
+$(document).ready(function(){
+	$(".scrollabletextbox").hide();
+	
+	$("#open1").click(function(e){
+		$("#scrollPom").show();
+		e.preventDefault();
+	});
+	
+	$("#close1").click(function(e){
+		$("#scrollPom").hide();
+		e.preventDefault();
+	});	
+	
+	$("#open2").click(function(e){
+		$("#scrollHello").show();
+		e.preventDefault();
+	});
+	
+	$("#close2").click(function(e){
+		$("#scrollHello").hide();
+		e.preventDefault();
+	});	
+
+	$("#open2_4").click(function(e){
+		$("#scrollIfElse").show();
+		e.preventDefault();
+	});
+	
+	$("#close2_4").click(function(e){
+		$("#scrollIfElse").hide();
+		e.preventDefault();
+	});		
+
+	
+	$("#open2_5").click(function(e){
+		$("#scrollLoops").show();
+		e.preventDefault();
+	});
+	
+	$("#close2_5").click(function(e){
+		$("#scrollLoops").hide();
+		e.preventDefault();
+	});		
+
+	$("#open2_6").click(function(e){
+		$("#scrollSubstring").show();
+		e.preventDefault();
+	});
+	
+	$("#close2_6").click(function(e){
+		$("#scrollSubstring").hide();
+		e.preventDefault();
+	});			
+
+	$("#open2_7").click(function(e){
+		$("#scrollSwitch").show();
+		e.preventDefault();
+	});
+	
+	$("#close2_7").click(function(e){
+		$("#scrollSwitch").hide();
+		e.preventDefault();
+	});				
+	
+	$("#open3").click(function(e){
+		$("#scrollKent").show();
+		e.preventDefault();
+	});
+	
+	$("#close3").click(function(e){
+		$("#scrollKent").hide();
+		e.preventDefault();
+	});			
+	
+	$("#open4").click(function(e){
+		$("#scrollBuilder").show();
+		e.preventDefault();
+	});
+	
+	$("#close4").click(function(e){
+		$("#scrollBuilder").hide();
+		e.preventDefault();
+	});				
+	
+	$("#open5").click(function(e){
+		$("#scrollArrays").show();
+		e.preventDefault();
+	});
+	
+	$("#close5").click(function(e){
+		$("#scrollArrays").hide();
+		e.preventDefault();
+	});			
+
+	$("#open6").click(function(e){
+		$("#scrollClassPoly").show();
+		e.preventDefault();
+	});
+	
+	$("#close6").click(function(e){
+		$("#scrollClassPoly").hide();
+		e.preventDefault();
+	});			
+
+	$("#open7").click(function(e){
+		$("#scrollInterfacePoly").show();
+		e.preventDefault();
+	});
+	
+	$("#close7").click(function(e){
+		$("#scrollInterfacePoly").hide();
+		e.preventDefault();
+	});		
+	
+	$("#open7_5").click(function(e){
+		$("#scrollBigDecimal").show();
+		e.preventDefault();
+	});
+	
+	$("#close7_5").click(function(e){
+		$("#scrollBigDecimal").hide();
+		e.preventDefault();
+	});			
+
+	$("#open8").click(function(e){
+		$("#scrollSortMap").show();
+		e.preventDefault();
+	});
+	
+	$("#close8").click(function(e){
+		$("#scrollSortMap").hide();
+		e.preventDefault();
+	});						
+});
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

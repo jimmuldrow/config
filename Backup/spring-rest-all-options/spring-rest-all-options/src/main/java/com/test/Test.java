@@ -23,7 +23,7 @@ public class Test {
 
 	Test(){
 		// Setting the index controls which resttemplate method gets called.
-		int index = 0;
+		int index = 6;
 		
 		switch(index) {
 		case 1: 

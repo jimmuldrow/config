@@ -19,6 +19,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import javax.servlet.http.HttpServletRequest;
+import org.springframework.cache.annotation.Cacheable;
 
 import java.util.*;
 
@@ -33,6 +34,7 @@ public class RestDemo {
 	
 	@RequestMapping(value = "/getItem/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
+	@Cacheable("items")
 	public ResponseEntity<Item> getItem(@PathVariable("id") String id) {
 		if(util.itemMap.containsKey(id)) {
 			Item item =  util.itemMap.get(id);
@@ -44,6 +46,7 @@ public class RestDemo {
 	}
 
 	@RequestMapping(value = "/getItemTwo", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Cacheable("items")
 	public Item getItemTwo(@RequestParam(required = false, defaultValue = "1") String id) {
 		if (id == null) {
 			return util.itemMap.get("1");
@@ -53,6 +56,7 @@ public class RestDemo {
 	}
 
 	@RequestMapping(value = "/getAllItems", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Cacheable("items")
 	public Map getAllItems() {
 		return util.itemMap;
 	}

@@ -1,0 +1,13 @@
+
+
+
+https://www.callicoder.com/hibernate-spring-boot-jpa-one-to-many-mapping-example/
+
+
+Testing
+
+Ran PostPosts to create post records.
+
+Ran PutPosts to change post 4.
+
+Ran DeletePosts to delete post 1.
