@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>index</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div id="container">
+<div id="title">IRS Calculations for Tax Year 2019</div><br>
+<table>
+<tr><td><button id="standardDeduction">StandardDeduction</button></td><td>&nbsp;&nbsp;
+Filing Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<select id="filingStatus">
+<option value="1">Single</option>
+<option value="2">Married Filing Jointly</option>
+<option value="3">Married Filing Separately</option>
+<option value="4">Head of Household</option>
+</select>&nbsp;&nbsp;</td>
+<td>&nbsp;&nbsp;Standard Deduction:&nbsp;&nbsp;<label id="calculatedStandardDeduction"/></td></tr>
+
+<tr><td><button id="alternativeMin">&nbsp;&nbsp;Alternative Minimum</button></td><td>
+&nbsp;&nbsp;&nbsp;Alternative Min&nbsp;&nbsp;
+<select id="filingStatusAM">
+<option value="1">Single</option>
+<option value="2">Married Filing Jointly</option>
+<option value="3">Married Filing Separately</option>
+<option value="4">Trusts and Estates</option>
+</select></td>
+<td>&nbsp;&nbsp;Alternative Minimum:&nbsp;&nbsp;<label id="calculatedAlternativeMin"/></td></tr>
+
+<tr><td><button id="individualRate">Individual Tax</button></td><td>&nbsp;&nbsp;Taxable Income&nbsp;&nbsp; 
+<input id="taxableIncomeIndRate"/></td><td>&nbsp;&nbsp;Your tax is:&nbsp;&nbsp;<label id="indTax"/></td></tr>
+
+<tr><td><button id="marriedJointReturnRate">Married Joint Return Tax</button></td><td>&nbsp;&nbsp;Taxable Income&nbsp;&nbsp; 
+<input id="taxableIncomeMarriedJointRate"/></td><td>&nbsp;&nbsp;Your tax is:&nbsp;&nbsp;<label id="marriedJointTax"/></td></tr>
+
+<tr><td><button id="marriedFilingSeparatelyRate">Married Filing Separately Tax</button></td><td>&nbsp;&nbsp;Taxable Income&nbsp;&nbsp; 
+<input id="taxableIncomeMarriedFilingSeparatelyRate"/></td><td>&nbsp;&nbsp;Your tax is:&nbsp;&nbsp;<label id="marriedFilingSeparatelyTax"/></td></tr>
+<tr><td><button id="headOfHouseholdRate">Head of Household Tax</button></td><td>&nbsp;&nbsp;Taxable Income&nbsp;&nbsp; 
+<input id="taxableIncomeHeadOfHouseholdRate"/></td><td>&nbsp;&nbsp;Your tax is:&nbsp;&nbsp;<label id="headOfHouseholdTax"/></td></tr>
+<tr><td><button id="trustsAndEstatesRate">Trusts and Estates Tax</button></td><td>&nbsp;&nbsp;Taxable Income&nbsp;&nbsp; 
+<input id="taxableIncomeTrustsAndEstatesRate"/></td><td>&nbsp;&nbsp;Your tax is:&nbsp;&nbsp;<label id="trustsAndEstatesTax"/></td></tr>
+</table>
+</div>
+<script>
+$("#standardDeduction").click(function(){
+	let url_standardDeduction = "http://localhost:8080/standardDeduction?filingStatus=";
+	let filingStatus = $("#filingStatus").val();
+
+	$.ajax({
+	    type: "GET",
+	    url: url_standardDeduction + filingStatus,
+	    dataType: "text"
+	}).done(function (res) {
+	    $("#calculatedStandardDeduction").text(res);
+	}).fail(function (jqXHR, textStatus, errorThrown) {
+	    alert("AJAX standardDeduction call failed: " + textStatus + ", " + errorThrown);
+	});
+});
+
+$("#alternativeMin").click(function(){
+	let url_alternative_min = "http://localhost:8080/alternativeMin?filingStatusAM=";
+	let filingStatus = $("#filingStatusAM").val();
+
+	$.ajax({
+	    type: "GET",
+	    url: url_alternative_min + filingStatus,
+	    dataType: "text"
+	}).done(function (res) {
+	    $("#calculatedAlternativeMin").text(res);
+	}).fail(function (jqXHR, textStatus, errorThrown) {
+	    alert("AJAX alternativeMin call failed: " + textStatus + ", " + errorThrown);
+	});
+});
+
+$("#standardDeduction").click(function(){
+	let url_standardDeduction = "http://localhost:8080/standardDeduction?filingStatus=";
+	let filingStatus = $("#filingStatus").val();
+
+	$.ajax({
+	    type: "GET",
+	    url: url_standardDeduction + filingStatus,
+	    dataType: "text"
+	}).done(function (res) {
+	    $("#calculatedStandardDeduction").text(res);
+	}).fail(function (jqXHR, textStatus, errorThrown) {
+	    alert("AJAX standardDeduction call failed: " + textStatus + ", " + errorThrown);
+	});
+});
+
+$("#individualRate").click(function(){
+	let url_indRate = "http://localhost:8080/individualRate?taxableIncome=";
+	let taxableIncomeIndRate = $("#taxableIncomeIndRate").val();
+	
+	$.ajax({
+	    type: "GET",
+	    url: url_indRate + taxableIncomeIndRate,
+	    dataType: "text"
+	}).done(function (res) {
+	    $("#indTax").text(res);
+	}).fail(function (jqXHR, textStatus, errorThrown) {
+	    alert("AJAX individualRate call failed: " + textStatus + ", " + errorThrown);
+	});
+});
+
+$("#marriedJointReturnRate").click(function(){
+	let url_marriedJointRate = "http://localhost:8080/marriedJointReturnRate?taxableIncome=";
+	let taxableIncomeMarriedJointRate = $("#taxableIncomeMarriedJointRate").val();
+	
+	$.ajax({
+	    type: "GET",
+	    url: url_marriedJointRate + taxableIncomeMarriedJointRate,
+	    dataType: "text"
+	}).done(function (res) {
+	    $("#marriedJointTax").text(res);
+	}).fail(function (jqXHR, textStatus, errorThrown) {
+	    alert("AJAX marriedJointReturnRate call failed: " + textStatus + ", " + errorThrown);
+	});
+});
+
+$("#marriedFilingSeparatelyRate").click(function(){
+	let url_marriedFilingSeparatelyRate = "http://localhost:8080/marriedFilingSeparatelyRate?taxableIncome=";
+	let taxableIncomeMarriedFilingSeparatelyRate = $("#taxableIncomeMarriedFilingSeparatelyRate").val();
+
+	$.ajax({
+	    type: "GET",
+	    url: url_marriedFilingSeparatelyRate + taxableIncomeMarriedFilingSeparatelyRate,
+	    dataType: "text"
+	}).done(function (res) {
+	    $("#marriedFilingSeparatelyTax").text(res);
+	}).fail(function (jqXHR, textStatus, errorThrown) {
+	    alert("AJAX marriedFilingSeparatelyRate call failed: " + textStatus + ", " + errorThrown);
+	});
+});
+
+$("#headOfHouseholdRate").click(function(){
+	let url_headOfHouseholdRate = "http://localhost:8080/headOfHousehold?taxableIncome=";
+	let taxableIncomeHeadOfHousehold = $("#taxableIncomeHeadOfHouseholdRate").val();
+
+	$.ajax({
+	    type: "GET",
+	    url: url_headOfHouseholdRate + taxableIncomeHeadOfHousehold,
+	    dataType: "text"
+	}).done(function (res) {
+	    $("#headOfHouseholdTax").text(res);
+	}).fail(function (jqXHR, textStatus, errorThrown) {
+	    alert("AJAX headOfHousehold call failed: " + textStatus + ", " + errorThrown);
+	});
+});
+
+$("#trustsAndEstatesRate").click(function(){
+	let url_trustsAndEstatesRate = "http://localhost:8080/trustsAndEstates?taxableIncome=";
+	let taxableIncomeTrustsAndEstates = $("#taxableIncomeTrustsAndEstatesRate").val();
+
+	$.ajax({
+	    type: "GET",
+	    url: url_trustsAndEstatesRate + taxableIncomeTrustsAndEstates,
+	    dataType: "text"
+	}).done(function (res) {
+	    $("#trustsAndEstatesTax").text(res);
+	}).fail(function (jqXHR, textStatus, errorThrown) {
+	    alert("AJAX trustsAndEstates call failed: " + textStatus + ", " + errorThrown);
+	});
+});
+</script>
+</body>
+</html>
